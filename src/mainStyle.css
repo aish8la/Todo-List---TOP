@@ -1,28 +1,28 @@
 :root {
-/* Primary Colors */
-  --primary-pastel-red: #FFB3B3;
-  --accent-pastel-red: #FF7F7F;
-  --muted-pink: #FF8C8C; /* Slightly darker for better readability */
-  --very-light-pastel-red: #FFF0F0;
+  /* Primary Colors */
+  --primary-red: #E63946;  /* Main red tone, bold and modern */
+  --accent-red: #D62828;   /* Slightly darker red for accents */
+  --soft-red: #F08080;     /* Softer red for less prominent elements */
+  --light-red: #FDECEC;    /* Very light red for background purposes */
 
   /* Neutral Colors */
-  --neutral-dark-gray: #2C2C2C; /* Darkened for improved visibility */
-  --neutral-medium-gray: #333333; /* For header and subheader distinction */
+  --neutral-dark-gray: #2C2C2C;   /* Dark neutral for text readability */
+  --neutral-medium-gray: #4F4F4F; /* Slightly lighter neutral gray for subheadings */
   --clean-white: #FFFFFF;
 
   /* Application Elements */
-  --background-color: var(--very-light-pastel-red);
-  --header-background: var(--primary-pastel-red);
+  --background-color: var(--light-red);
+  --header-background: var(--primary-red);
   --primary-text: var(--neutral-dark-gray);
-  --header-text: var(--accent-pastel-red);
+  --header-text: var(--clean-white);
   --subheader-text: var(--neutral-medium-gray);
-  --button-background: var(--accent-pastel-red);
+  --button-background: var(--accent-red);
   --button-text: var(--clean-white);
-  --sidebar-background: #FFD6D6; /* Slightly softer than primary */
+  --sidebar-background: #FFD6D6; /* Slight contrast to the main background */
   --sidebar-header-text: var(--neutral-dark-gray);
-  --sidebar-list-text: var(--neutral-dark-gray);
+  --sidebar-list-text: var(--neutral-medium-gray);
   --dialogue-background: var(--clean-white);
-  --dialogue-outline: var(--primary-pastel-red);    
+  --dialogue-outline: var(--primary-red);   
 }
 
 * {
@@ -30,13 +30,67 @@
     box-sizing: border-box;
 }
 
+.no-decoration-list {
+    list-style-type: none;
+}
+
+.no-decoration-list, .no-decoration-list > li {
+    padding: 0;
+}
+
+.header {
+    background-color: var(--header-background);
+    color: var(--header-text);
+    font-size: 3rem;
+    font-weight: 800;
+    padding: 15px 30px;
+}
+
+.sidebar {
+    background-color: var(--sidebar-background);
+    color: var(--sidebar-list-text);
+}
+
+.sidebar-title {
+    color: var(--sidebar-header-text);
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+
+
+.button {
+    background-color: var(--button-background);
+    color: var(--button-text);
+}
+
 body {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    background-color: var(--background-color);
 }
 
-header {
-    background-color: var(--header-background);
-    color: var(--header-text);
+.main-ctn {
+    display: flex;
+    height: 100%;
+}
+
+.nav-sidebar {
+    padding: 25px 35px;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.add-task-btn {
+    margin: 0 0 15px 0;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.category-section {
+    margin-bottom: 15px;
 }
