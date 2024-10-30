@@ -1,0 +1,42 @@
+:root {
+/* Primary Colors */
+  --primary-pastel-red: #FFB3B3;
+  --accent-pastel-red: #FF7F7F;
+  --muted-pink: #FF8C8C; /* Slightly darker for better readability */
+  --very-light-pastel-red: #FFF0F0;
+
+  /* Neutral Colors */
+  --neutral-dark-gray: #2C2C2C; /* Darkened for improved visibility */
+  --neutral-medium-gray: #333333; /* For header and subheader distinction */
+  --clean-white: #FFFFFF;
+
+  /* Application Elements */
+  --background-color: var(--very-light-pastel-red);
+  --header-background: var(--primary-pastel-red);
+  --primary-text: var(--neutral-dark-gray);
+  --header-text: var(--accent-pastel-red);
+  --subheader-text: var(--neutral-medium-gray);
+  --button-background: var(--accent-pastel-red);
+  --button-text: var(--clean-white);
+  --sidebar-background: #FFD6D6; /* Slightly softer than primary */
+  --sidebar-header-text: var(--neutral-dark-gray);
+  --sidebar-list-text: var(--neutral-dark-gray);
+  --dialogue-background: var(--clean-white);
+  --dialogue-outline: var(--primary-pastel-red);    
+}
+
+* {
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: var(--header-background);
+    color: var(--header-text);
+}
