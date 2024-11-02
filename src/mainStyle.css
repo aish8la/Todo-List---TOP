@@ -78,20 +78,25 @@ body {
 }
 
 .nav-sidebar {
-    padding: 25px 35px;
     font-size: 1.25rem;
     font-weight: 500;
 }
 
+.sidebar-title, .add-task-btn {
+    margin: 25px 25px 15px 25px
+}
+
+.nav-sidebar li {
+    padding: 5px 25px;
+    margin: 5px 5px 5px 5px;
+    border: 2px solid var(--dialogue-outline);
+    border-radius: 5px;
+}
+
 .add-task-btn {
-    margin: 0 0 15px 0;
     padding: 10px 20px;
     border-radius: 25px;
     border: none;
     font-size: 1.25rem;
     font-weight: 600;
-}
-
-.category-section {
-    margin-bottom: 15px;
 }
