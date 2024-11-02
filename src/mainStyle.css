@@ -80,6 +80,9 @@ body {
 .nav-sidebar {
     font-size: 1.25rem;
     font-weight: 500;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar-title, .add-task-btn {
@@ -99,4 +102,8 @@ body {
     border: none;
     font-size: 1.25rem;
     font-weight: 600;
+}
+
+.content-space {
+    flex: 1;
 }
