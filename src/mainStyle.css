@@ -1,29 +1,27 @@
 :root {
-  /* Primary Colors */
-  --primary-red: #E63946;  /* Main red tone, bold and modern */
-  --accent-red: #D62828;   /* Slightly darker red for accents */
-  --soft-red: #F08080;     /* Softer red for less prominent elements */
-  --light-red: #FDECEC;    /* Very light red for background purposes */
-
-  /* Neutral Colors */
-  --neutral-dark-gray: #2C2C2C;   /* Dark neutral for text readability */
-  --neutral-medium-gray: #4F4F4F; /* Slightly lighter neutral gray for subheadings */
-  --clean-white: #FFFFFF;
-
-  /* Application Elements */
-  --background-color: var(--light-red);
-  --header-background: var(--primary-red);
-  --primary-text: var(--neutral-dark-gray);
-  --header-text: var(--clean-white);
-  --subheader-text: var(--neutral-medium-gray);
-  --button-background: var(--accent-red);
-  --button-text: var(--clean-white);
-  --sidebar-background: #FFD6D6; /* Slight contrast to the main background */
-  --sidebar-header-text: var(--neutral-dark-gray);
-  --sidebar-list-text: var(--neutral-medium-gray);
-  --dialogue-background: var(--clean-white);
-  --dialogue-outline: var(--primary-red);   
-}
+    /* Primary Colors */
+    --pure-white: #FFFFFF;              /* Pure white */
+    --off-white: #F9F9F9;               /* Very light off-white for subtle contrast */
+    --light-off-white: #F2F2F2;         /* Slightly darker off-white for backgrounds */
+    --medium-off-white: #E6E6E6;        /* Medium off-white for elements that need subtle separation */
+    --dark-off-white: #CCCCCC;          /* Darker off-white for accents */
+    --neutral-dark-gray: #333333;       /* Dark neutral for improved text readability */
+    --neutral-medium-gray: #666666;     /* Medium gray for secondary text elements */
+  
+    /* Application Elements */
+    --background-color: var(--off-white);
+    --header-background: var(--pure-white);
+    --primary-text: var(--neutral-dark-gray);
+    --header-text: var(--neutral-dark-gray);
+    --subheader-text: var(--neutral-medium-gray);
+    --button-background: var(--medium-off-white);
+    --button-text: var(--neutral-dark-gray);
+    --sidebar-background: var(--light-off-white);
+    --sidebar-header-text: var(--neutral-dark-gray);
+    --sidebar-list-text: var(--neutral-medium-gray);
+    --dialogue-background: var(--pure-white);
+    --dialogue-outline: var(--medium-off-white);
+  }
 
 * {
     margin: 0px;
@@ -83,16 +81,17 @@ body {
     width: 250px;
     display: flex;
     flex-direction: column;
+    margin: 20px;
+    border-radius: 10px;
 }
 
-.sidebar-title, .add-task-btn {
-    margin: 25px 25px 15px 25px
+.sidebar-title {
+    margin: 25px 25px 15px 15px
 }
 
 .nav-sidebar li {
-    padding: 5px 25px;
-    margin: 5px 5px 5px 5px;
-    border: 2px solid var(--dialogue-outline);
+    padding: 5px 40px;
+    margin: 8px;
     border-radius: 5px;
 }
 
@@ -102,8 +101,30 @@ body {
     border: none;
     font-size: 1.25rem;
     font-weight: 600;
+    margin: 25px 25px 15px 25px
 }
 
 .content-space {
     flex: 1;
+    margin: 20px
 }
+
+.content-title {
+    margin-bottom: 25px;
+    margin-top: 25px;
+    font-weight: 800;
+    font-size: 2rem;
+    color: var(--subheader-text);
+}
+
+.task-list-ctn {
+    display: flex;
+    flex-direction: column;
+}
+
+/* li:not(:last-child)::after {
+    content: "";
+    display: block;
+    border-bottom: 1px solid #ccc;
+    margin: 5px 0;
+  } */
