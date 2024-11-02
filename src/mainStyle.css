@@ -51,8 +51,9 @@
 
 .sidebar-title {
     color: var(--sidebar-header-text);
-    font-size: 1.5rem;
-    font-weight: 500;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 25px 25px 15px 15px;
 }
 
 
@@ -83,10 +84,6 @@ body {
     flex-direction: column;
     margin: 20px;
     border-radius: 10px;
-}
-
-.sidebar-title {
-    margin: 25px 25px 15px 15px
 }
 
 .nav-sidebar li {
@@ -120,11 +117,32 @@ body {
 .task-list-ctn {
     display: flex;
     flex-direction: column;
+    gap: 5px;
 }
 
-/* li:not(:last-child)::after {
-    content: "";
-    display: block;
+li.task-item {
+    display: flex;
+    flex-wrap: wrap;
     border-bottom: 1px solid #ccc;
-    margin: 5px 0;
-  } */
+    padding: 5px 20px 5px 15px;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.task-item-line-one > * {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--primary-text);
+}
+
+.task-item-line-two {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--subheader-text);
+}
+
+.task-item-line {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
