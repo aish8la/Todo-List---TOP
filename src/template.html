@@ -26,7 +26,10 @@
           </ul>
         </div>
         <div class="projects-section">
-          <div class="sidebar-title">Projects</div>
+          <div class="sidebar-title-container">
+            <div class="sidebar-title">Projects</div>
+            <button class="add-project-btn" type="button">&#43;</button>
+          </div>
           <ul class="project-list no-decoration-list">
             <li>Personal</li>
             <li>Work</li>
@@ -139,6 +142,26 @@
               Delete
             </button>
             <button type="submit" class="form-button save-task-btn">
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="dialog-overlay hidden">
+      <div class="dialog-box">
+        <div class="dialog-title">New Project</div>
+        <form class="dialog-form">
+          <input
+            type="text"
+            class="form-input dialog-input"
+            placeholder="Project Name"
+          />
+          <div class="dialog-buttons">
+            <button type="button" class="dialog-button dialog-cancel-btn">
+              Cancel
+            </button>
+            <button type="submit" class="dialog-button dialog-save-btn">
               Save
             </button>
           </div>
