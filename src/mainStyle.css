@@ -1,326 +1,330 @@
 :root {
-    /* Primary Colors */
-    --pure-white: #FFFFFF;              /* Pure white */
-    --off-white: #FAFAFA;               /* Very light off-white for subtle contrast */
-    --light-off-white: #F5F5F5;         /* Light off-white for backgrounds */
-    --medium-off-white: #EEEEEE;        /* Lighter sidebar background for better blending */
-    --dark-off-white: #CCCCCC;          /* Darker off-white for accents */
-    --neutral-dark-gray: #333333;       /* Dark neutral for improved text readability */
-    --neutral-medium-gray: #666666;     /* Medium gray for secondary text elements */
-    --button-dark-gray: #444444;        /* Dark gray to make sidebar button stand out */
-  
-    /* Application Elements */
-    --background-color: var(--off-white);
-    --header-background: var(--pure-white);
-    --primary-text: var(--neutral-dark-gray);
-    --header-text: var(--neutral-dark-gray);
-    --subheader-text: var(--neutral-medium-gray);
-    --button-background: var(--button-dark-gray);
-    --button-text: var(--pure-white);
-    --sidebar-background: var(--medium-off-white);  /* Lighter sidebar background */
-    --sidebar-header-text: var(--neutral-dark-gray);
-    --sidebar-list-text: var(--neutral-medium-gray);
-    --dialogue-background: var(--pure-white);
-    --dialogue-outline: var(--medium-off-white);
-  
-    /* Form Colors */
-    --form-background: var(--sidebar-background);  /* Same as updated sidebar */
-    --form-border: var(--dark-off-white);
-    --form-text: var(--neutral-dark-gray);
-    --form-placeholder: var(--neutral-medium-gray);
-    --form-label: var(--neutral-dark-gray);
-  
-    /* Priority Tag Colors */
-    --priority-high: #FF5C5C;          /* Bold red to indicate high priority */
-    --priority-medium: #FFA726;        /* Vibrant orange for medium priority */
-    --priority-low: #8BC34A;           /* Soft green to indicate low priority */
-    --priority-none: #B0BEC5;          /* Light gray for no specific priority */
-  
-    /* Text Colors for Tags */
-    --text-on-bright: #FFFFFF;         /* White text for bright tag backgrounds */
-    --text-on-light: #333333;          /* Dark gray text for light tag backgrounds */
-  }
+  /* Primary Colors */
+  --pure-white: #ffffff; /* Pure white */
+  --off-white: #fafafa; /* Very light off-white for subtle contrast */
+  --light-off-white: #f5f5f5; /* Light off-white for backgrounds */
+  --medium-off-white: #eeeeee; /* Lighter sidebar background for better blending */
+  --dark-off-white: #cccccc; /* Darker off-white for accents */
+  --neutral-dark-gray: #333333; /* Dark neutral for improved text readability */
+  --neutral-medium-gray: #666666; /* Medium gray for secondary text elements */
+  --button-dark-gray: #444444; /* Dark gray to make sidebar button stand out */
 
-    /* Universal Styles*/
+  /* Application Elements */
+  --background-color: var(--off-white);
+  --header-background: var(--pure-white);
+  --primary-text: var(--neutral-dark-gray);
+  --header-text: var(--neutral-dark-gray);
+  --subheader-text: var(--neutral-medium-gray);
+  --button-background: var(--button-dark-gray);
+  --button-text: var(--pure-white);
+  --sidebar-background: var(
+    --medium-off-white
+  ); /* Lighter sidebar background */
+  --sidebar-header-text: var(--neutral-dark-gray);
+  --sidebar-list-text: var(--neutral-medium-gray);
+  --dialogue-background: var(--pure-white);
+  --dialogue-outline: var(--medium-off-white);
+
+  /* Form Colors */
+  --form-background: var(--sidebar-background); /* Same as updated sidebar */
+  --form-border: var(--dark-off-white);
+  --form-text: var(--neutral-dark-gray);
+  --form-placeholder: var(--neutral-medium-gray);
+  --form-label: var(--neutral-dark-gray);
+
+  /* Priority Tag Colors */
+  --priority-high: #ff5c5c; /* Bold red to indicate high priority */
+  --priority-medium: #ffa726; /* Vibrant orange for medium priority */
+  --priority-low: #8bc34a; /* Soft green to indicate low priority */
+  --priority-none: #b0bec5; /* Light gray for no specific priority */
+
+  /* Text Colors for Tags */
+  --text-on-bright: #ffffff; /* White text for bright tag backgrounds */
+  --text-on-light: #333333; /* Dark gray text for light tag backgrounds */
+}
+
+/* Universal Styles*/
 
 * {
-    margin: 0px;
-    box-sizing: border-box;
+  margin: 0px;
+  box-sizing: border-box;
 }
 
 .no-decoration-list {
-    list-style-type: none;
+  list-style-type: none;
 }
 
-.no-decoration-list, .no-decoration-list > li {
-    padding-left: 0;
+.no-decoration-list,
+.no-decoration-list > li {
+  padding-left: 0;
 }
 
 body {
-    font-family: "Roboto", sans-serif;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-color: var(--background-color);
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
 }
 
 /* Header Styles */
 
 .header {
-    background-color: var(--header-background);
-    color: var(--header-text);
-    font-size: 3rem;
-    font-weight: 800;
-    padding: 15px 30px;
+  background-color: var(--header-background);
+  color: var(--header-text);
+  font-size: 3rem;
+  font-weight: 800;
+  padding: 15px 30px;
 }
 
- /* Main Container Styles */
+/* Main Container Styles */
 
 .main-ctn {
-    display: flex;
-    height: 100%;
+  display: flex;
+  height: 100%;
 }
 
 /* Sidebar Styles */
 
 .sidebar-title {
-    color: var(--sidebar-header-text);
-    font-size: 1.6rem;
-    font-weight: 600;
-    margin: 25px 25px 15px 15px;
+  color: var(--sidebar-header-text);
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 25px 25px 15px 15px;
 }
 
 .nav-sidebar {
-    font-size: 1.25rem;
-    font-weight: 500;
-    width: 250px;
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-    border-radius: 10px;
-    background-color: var(--sidebar-background);
-    color: var(--sidebar-list-text);
+  font-size: 1.25rem;
+  font-weight: 500;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  border-radius: 10px;
+  background-color: var(--sidebar-background);
+  color: var(--sidebar-list-text);
 }
 
 .nav-sidebar li {
-    padding: 5px 40px;
-    margin: 8px;
-    border-radius: 5px;
+  padding: 5px 40px;
+  margin: 8px;
+  border-radius: 5px;
 }
 
 .add-task-btn {
-    padding: 10px 20px;
-    border-radius: 25px;
-    border: none;
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: 25px 25px 15px 25px;
-    background-color: var(--button-background);
-    color: var(--button-text);
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: none;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 25px 25px 15px 25px;
+  background-color: var(--button-background);
+  color: var(--button-text);
 }
 
 /* Main Content Box Styles */
 
 .content-space {
-    flex: 1;
-    margin: 20px
+  flex: 1;
+  margin: 20px;
 }
 
 .content-title {
-    margin-bottom: 25px;
-    margin-top: 25px;
-    font-weight: 800;
-    font-size: 2rem;
-    color: var(--subheader-text);
+  margin-bottom: 25px;
+  margin-top: 25px;
+  font-weight: 800;
+  font-size: 2rem;
+  color: var(--subheader-text);
 }
 
 .task-list-ctn {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 li.task-item {
-    display: flex;
-    flex-wrap: wrap;
-    border-bottom: 1px solid #ccc;
-    padding: 5px 20px 5px 15px;
-    gap: 10px;
-    justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #ccc;
+  padding: 5px 20px 5px 15px;
+  gap: 10px;
+  justify-content: space-between;
 }
 
 .task-item-line-one > * {
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: var(--primary-text);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--primary-text);
 }
 
 .task-item-line-two {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--subheader-text);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--subheader-text);
 }
 
 .task-item-line {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
 }
 
 .list-task-priority {
-    background-color: var(--priority-none);
-    color: var(--text-on-light);
-    font-weight: 800;
-    padding: 5px;
-    border-radius: 20px;
-    width: 5rem;
-    max-width: 80px;
-    text-align: center;
+  background-color: var(--priority-none);
+  color: var(--text-on-light);
+  font-weight: 800;
+  padding: 5px;
+  border-radius: 20px;
+  width: 5rem;
+  max-width: 80px;
+  text-align: center;
 }
 
 .task-item-check-box {
-    width: 1rem;
-    height: 1rem;
+  width: 1rem;
+  height: 1rem;
 }
 
 .list-task-priority.High-Priority {
-    color: var(--text-on-bright);
-    background-color: var(--priority-high);
+  color: var(--text-on-bright);
+  background-color: var(--priority-high);
 }
 
 .list-task-priority.Medium-Priority {
-    color: var(--text-on-bright);
-    background-color: var(--priority-medium);
+  color: var(--text-on-bright);
+  background-color: var(--priority-medium);
 }
 
 .list-task-priority.Low-Priority {
-    color: var(--text-on-bright);
-    background-color: var(--priority-low);
+  color: var(--text-on-bright);
+  background-color: var(--priority-low);
 }
 
 /* Form Container Styles */
 
 .form-container {
-    width: 350px;
-    margin: 20px;
-    border-radius: 10px;
-    background-color: var(--form-background);
-    padding: 25px 15px;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+  width: 350px;
+  margin: 20px;
+  border-radius: 10px;
+  background-color: var(--form-background);
+  padding: 25px 15px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .task-form {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
 }
 
 .form-title {
-    color: var(--sidebar-header-text);
-    font-size: 1.6rem;
-    font-weight: 600;
-    margin-bottom: 20px;
+  color: var(--sidebar-header-text);
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 20px;
 }
 
 .form-input {
-    background-color: var(--form-background);
-    border: 2px solid var(--form-border);
-    padding: 5px 10px;
-    border-radius: 10px;
-    font-size: 1rem;
-
+  background-color: var(--form-background);
+  border: 2px solid var(--form-border);
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 1rem;
 }
 
 .form-input::placeholder {
-    font-size: 1rem;
-    font-weight: 600;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .form-task-description {
-    height: 80px;
-    resize: none;
+  height: 80px;
+  resize: none;
 }
 
 .form-input-lable {
-    font-size: 1em;
-    font-weight: 600;
-    color: var(--form-label);
-    width: 7rem;
+  font-size: 1em;
+  font-weight: 600;
+  color: var(--form-label);
+  width: 7rem;
 }
 
 .form-input-div {
-    display: flex;
-    gap: 25px;
-    align-items: center;
+  display: flex;
+  gap: 25px;
+  align-items: center;
 }
 
-.form-input-div > .project-input, .form-input-div > .priority-input, .form-input-div > input[type="date"] {
-    flex: 1;
+.form-input-div > .project-input,
+.form-input-div > .priority-input,
+.form-input-div > input[type="date"] {
+  flex: 1;
 }
 
 .form-sub-title {
-    font-size: 1.2rem;
-    font-weight: 500;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .form-sub-task-container {
-    margin-top: 15px;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .sub-task-btn {
-    background-color: transparent;
-    border: 2px solid var(--form-border);
-    border-radius: 5px;
-    padding: 5px 20px;
+  background-color: transparent;
+  border: 2px solid var(--form-border);
+  border-radius: 5px;
+  padding: 5px 20px;
 }
 
 .sub-task-title-ctn {
-    display: flex;
-    align-content: center;
-    justify-content: space-between;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
 }
 
 .sub-task-list-ctn {
-    overflow-y: scroll;
-    flex: 1;
+  overflow-y: scroll;
+  flex: 1;
 }
 
 .subtask-item-title {
-    background-color: transparent;
-    border: none;
-    flex: 1;
+  background-color: transparent;
+  border: none;
+  flex: 1;
 }
 
 .sub-task-item {
-    display: flex;
-    gap: 10px;
-    align-content: center;
-    border-bottom: 1px solid #ccc;
-    margin-top: 5px;
-    padding-bottom: 5px;
+  display: flex;
+  gap: 10px;
+  align-content: center;
+  border-bottom: 1px solid #ccc;
+  margin-top: 5px;
+  padding-bottom: 5px;
 }
 
 .sub-task-delete {
-    border: none;
-    margin-left: auto;
+  border: none;
+  margin-left: auto;
 }
 
 .form-button-div {
-    justify-self: flex-end;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+  justify-self: flex-end;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
 .form-button-div > button {
-    flex: 1;
-    height: 35px;
-    border-radius: 10px;
+  flex: 1;
+  height: 35px;
+  border-radius: 10px;
 }

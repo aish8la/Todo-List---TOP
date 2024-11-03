@@ -19,8 +19,8 @@
       <div class="nav-sidebar sidebar">
         <button class="add-task-btn button">Add Task</button>
         <div class="category-section">
-            <div class="sidebar-title">Tasks</div>
-            <ul class="category-list no-decoration-list">
+          <div class="sidebar-title">Tasks</div>
+          <ul class="category-list no-decoration-list">
             <li>Today</li>
             <li>Upcoming</li>
           </ul>
@@ -37,23 +37,48 @@
         <div class="content-title">Today</div>
         <ul class="task-list-ctn no-decoration-list">
           <li class="task-item">
-            <div class="task-item-line-one task-item-line"><input type="checkbox" class="task-item-check-box"><div class="list-task-title">Task 1</div></div>
-            <div class="task-item-line-two task-item-line"><div class="list-task-item-project">Personal</div><div class="list-task-due">Nov 30, 2024</div><div class="list-task-priority Medium-Priority">Medium</div></div>
+            <div class="task-item-line-one task-item-line">
+              <input type="checkbox" class="task-item-check-box" />
+              <div class="list-task-title">Task 1</div>
+            </div>
+            <div class="task-item-line-two task-item-line">
+              <div class="list-task-item-project">Personal</div>
+              <div class="list-task-due">Nov 30, 2024</div>
+              <div class="list-task-priority Medium-Priority">Medium</div>
+            </div>
           </li>
           <li class="task-item">
-            <div class="task-item-line-one task-item-line"><input type="checkbox" class="task-item-check-box"><div class="list-task-title">Task 1</div></div>
-            <div class="task-item-line-two task-item-line"><div class="list-task-item-project">Personal</div><div class="list-task-due">Dec 31 2025</div><div class="list-task-priority High-Priority">High</div></div>
+            <div class="task-item-line-one task-item-line">
+              <input type="checkbox" class="task-item-check-box" />
+              <div class="list-task-title">Task 1</div>
+            </div>
+            <div class="task-item-line-two task-item-line">
+              <div class="list-task-item-project">Personal</div>
+              <div class="list-task-due">Dec 31 2025</div>
+              <div class="list-task-priority High-Priority">High</div>
+            </div>
           </li>
         </ul>
       </div>
       <div class="form-container">
         <form action="" method="post" class="task-form">
           <div class="form-title">Task:</div>
-          <input type="text" class="form-task-title form-input" placeholder="Task Name">
-          <textarea class="form-task-description form-input" placeholder="Description"></textarea>
+          <input
+            type="text"
+            class="form-task-title form-input"
+            placeholder="Task Name"
+          />
+          <textarea
+            class="form-task-description form-input"
+            placeholder="Description"
+          ></textarea>
           <div class="form-input-div priority-input">
             <label for="priority" class="form-input-lable">Priority</label>
-            <select id="priority" name="priority" class="form-input priority-input">
+            <select
+              id="priority"
+              name="priority"
+              class="form-input priority-input"
+            >
               <option selected>None</option>
               <option>Low</option>
               <option>Medium</option>
@@ -62,36 +87,59 @@
           </div>
           <div class="form-input-div project-input">
             <label for="project" class="form-input-lable">Project</label>
-            <select id="project" name="project" class="form-input project-input">
+            <select
+              id="project"
+              name="project"
+              class="form-input project-input"
+            >
               <option>Personal</option>
               <option>Work</option>
             </select>
           </div>
           <div class="form-input-div due-date-input">
             <label for="due-date" class="form-input-lable">Due Date</label>
-            <input type="date" id="due-date" name="due-date" class="form-input due-date-input">
+            <input
+              type="date"
+              id="due-date"
+              name="due-date"
+              class="form-input due-date-input"
+            />
           </div>
           <div class="form-sub-task-container">
             <div class="sub-task-title-ctn">
               <div class="form-sub-title">Subtask:</div>
-              <button class="sub-task-btn" type="button">&#43; Add Subtask</button>
+              <button class="sub-task-btn" type="button">
+                &#43; Add Subtask
+              </button>
             </div>
             <ul class="sub-task-list-ctn no-decoration-list">
               <li class="sub-task-item">
-                <input type="checkbox" class="subtask-checkbox">
-                <input type="text" class="subtask-item-title" placeholder="Subtask">
+                <input type="checkbox" class="subtask-checkbox" />
+                <input
+                  type="text"
+                  class="subtask-item-title"
+                  placeholder="Subtask"
+                />
                 <button type="button" class="sub-task-delete">&#10006;</button>
               </li>
               <li class="sub-task-item">
-                <input type="checkbox" class="subtask-checkbox">
-                <input type="text" class="subtask-item-title" placeholder="Subtask">
+                <input type="checkbox" class="subtask-checkbox" />
+                <input
+                  type="text"
+                  class="subtask-item-title"
+                  placeholder="Subtask"
+                />
                 <button type="button" class="sub-task-delete">&#10006;</button>
               </li>
             </ul>
           </div>
           <div class="form-button-div">
-            <button type="button" class="form-button delete-task-btn">Delete</button>
-            <button type="submit" class="form-button save-task-btn">Save</button>
+            <button type="button" class="form-button delete-task-btn">
+              Delete
+            </button>
+            <button type="submit" class="form-button save-task-btn">
+              Save
+            </button>
           </div>
         </form>
       </div>
