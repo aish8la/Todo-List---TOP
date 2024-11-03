@@ -53,7 +53,7 @@
           <textarea class="form-task-description form-input" placeholder="Description"></textarea>
           <div class="form-input-div priority-input">
             <label for="priority" class="form-input-lable">Priority</label>
-            <select id="priority" name="priority" class="form-input">
+            <select id="priority" name="priority" class="form-input priority-input">
               <option selected>None</option>
               <option>Low</option>
               <option>Medium</option>
@@ -66,6 +66,28 @@
               <option>Personal</option>
               <option>Work</option>
             </select>
+          </div>
+          <div class="form-input-div due-date-input">
+            <label for="due-date" class="form-input-lable">Due Date</label>
+            <input type="date" id="due-date" name="due-date" class="form-input due-date-input">
+          </div>
+          <div class="form-sub-task-container">
+            <div class="sub-task-title-ctn">
+              <div class="form-sub-title">Subtask:</div>
+              <button class="sub-task-btn" type="button">&#43; Add Subtask</button>
+            </div>
+            <ul class="sub-task-list-ctn no-decoration-list">
+              <li class="sub-task-item">
+                <input type="checkbox" class="subtask-checkbox">
+                <div class="subtask-it-title">Subtask 1</div>
+                <button type="button" class="sub-task-delete">&#10006;</button>
+              </li>
+              <li class="sub-task-item">
+                <input type="checkbox" class="subtask-checkbox">
+                <div class="subtask-it-title">Subtask 1</div>
+                <button type="button" class="sub-task-delete">&#10006;</button>
+              </li>
+            </ul>
           </div>
         </form>
       </div>

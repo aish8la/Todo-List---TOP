@@ -53,7 +53,7 @@
 }
 
 .no-decoration-list, .no-decoration-list > li {
-    padding: 0;
+    padding-left: 0;
 }
 
 body {
@@ -212,7 +212,7 @@ li.task-item {
 .task-form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 5px;
 }
 
 .form-title {
@@ -227,25 +227,25 @@ li.task-item {
     border: 2px solid var(--form-border);
     padding: 5px 10px;
     border-radius: 10px;
-    font-size: 1.35rem;
+    font-size: 1rem;
 
 }
 
 .form-input::placeholder {
-    font-size: 1.35rem;
+    font-size: 1rem;
     font-weight: 600;
 }
 
 .form-task-description {
-    height: 150px;
+    height: 80px;
     resize: none;
 }
 
 .form-input-lable {
-    font-size: 1.5rem;
+    font-size: 1em;
     font-weight: 600;
     color: var(--form-label);
-    width: 5rem;
+    width: 7rem;
 }
 
 .form-input-div {
@@ -254,7 +254,42 @@ li.task-item {
     align-items: center;
 }
 
-.form-input-div > select {
+.form-input-div > .project-input, .priority-input {
     flex: 1;
 }
 
+.form-sub-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.form-sub-task-container {
+    margin-top: 15px;
+}
+
+.sub-task-btn {
+    background-color: transparent;
+    border: 2px solid var(--form-border);
+    border-radius: 5px;
+    padding: 5px 20px;
+}
+
+.sub-task-title-ctn {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.sub-task-item {
+    display: flex;
+    gap: 10px;
+    align-content: center;
+    border-bottom: 1px solid #ccc;
+    margin-top: 5px;
+    padding-bottom: 5px;
+}
+
+.sub-task-delete {
+    border: none;
+    margin-left: auto;
+}
