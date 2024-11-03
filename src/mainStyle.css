@@ -207,12 +207,16 @@ li.task-item {
     border-radius: 10px;
     background-color: var(--form-background);
     padding: 25px 15px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .task-form {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    flex: 1;
 }
 
 .form-title {
@@ -254,7 +258,7 @@ li.task-item {
     align-items: center;
 }
 
-.form-input-div > .project-input, .priority-input {
+.form-input-div > .project-input, .form-input-div > .priority-input, .form-input-div > input[type="date"] {
     flex: 1;
 }
 
@@ -265,6 +269,9 @@ li.task-item {
 
 .form-sub-task-container {
     margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .sub-task-btn {
@@ -280,6 +287,17 @@ li.task-item {
     justify-content: space-between;
 }
 
+.sub-task-list-ctn {
+    overflow-y: scroll;
+    flex: 1;
+}
+
+.subtask-item-title {
+    background-color: transparent;
+    border: none;
+    flex: 1;
+}
+
 .sub-task-item {
     display: flex;
     gap: 10px;
@@ -292,4 +310,17 @@ li.task-item {
 .sub-task-delete {
     border: none;
     margin-left: auto;
+}
+
+.form-button-div {
+    justify-self: flex-end;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.form-button-div > button {
+    flex: 1;
+    height: 35px;
+    border-radius: 10px;
 }
