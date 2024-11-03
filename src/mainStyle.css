@@ -345,3 +345,63 @@ li.task-item {
     background-color: var(--form-save-button);
     color: var(--form-save-button-text);
 }
+
+/* Hover effects for interactive elements */
+.add-task-btn:hover,
+.form-button:hover,
+.sub-task-btn:hover {
+    opacity: 0.9;
+    cursor: pointer;
+    transform: scale(1.02);
+    transition: all 0.2s ease;
+}
+
+/* Task item hover and interaction styling */
+.task-item {
+    transition: background-color 0.2s ease;
+}
+
+.task-item:hover {
+    background-color: var(--light-off-white);
+    cursor: pointer;
+}
+
+/* Subtask item styling */
+
+.subtask-item-title:focus {
+    outline: none;
+}
+
+/* Subtask delete button styling */
+.sub-task-delete {
+    opacity: 0.6;
+    background-color: transparent;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.sub-task-delete:hover {
+    opacity: 1;
+    color: var(--form-delete-button);
+}
+
+/* Sidebar item hover effects */
+.nav-sidebar li {
+    transition: background-color 0.2s ease;
+}
+
+.nav-sidebar li:hover {
+    background-color: var(--dark-off-white);
+    cursor: pointer;
+}
+
+/* Enhance form input styling */
+.form-input:focus {
+    outline: none;
+    border-color: var(--button-dark-gray);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.form-input:hover {
+    border-color: var(--button-dark-gray);
+}
