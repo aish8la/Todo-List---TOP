@@ -1,9 +1,9 @@
 :root {
     /* Primary Colors */
     --pure-white: #FFFFFF;              /* Pure white */
-    --off-white: #F9F9F9;               /* Very light off-white for subtle contrast */
-    --light-off-white: #F2F2F2;         /* Slightly darker off-white for backgrounds */
-    --medium-off-white: #D9D9D9;        /* Darkened sidebar background */
+    --off-white: #FAFAFA;               /* Very light off-white for subtle contrast */
+    --light-off-white: #F5F5F5;         /* Light off-white for backgrounds */
+    --medium-off-white: #EEEEEE;        /* Lighter sidebar background for better blending */
     --dark-off-white: #CCCCCC;          /* Darker off-white for accents */
     --neutral-dark-gray: #333333;       /* Dark neutral for improved text readability */
     --neutral-medium-gray: #666666;     /* Medium gray for secondary text elements */
@@ -15,16 +15,16 @@
     --primary-text: var(--neutral-dark-gray);
     --header-text: var(--neutral-dark-gray);
     --subheader-text: var(--neutral-medium-gray);
-    --button-background: var(--button-dark-gray);   /* Updated to ensure visibility */
+    --button-background: var(--button-dark-gray);
     --button-text: var(--pure-white);
-    --sidebar-background: var(--medium-off-white);
+    --sidebar-background: var(--medium-off-white);  /* Lighter sidebar background */
     --sidebar-header-text: var(--neutral-dark-gray);
     --sidebar-list-text: var(--neutral-medium-gray);
     --dialogue-background: var(--pure-white);
     --dialogue-outline: var(--medium-off-white);
   
     /* Form Colors */
-    --form-background: var(--sidebar-background);  /* Same as sidebar */
+    --form-background: var(--sidebar-background);  /* Same as updated sidebar */
     --form-border: var(--dark-off-white);
     --form-text: var(--neutral-dark-gray);
     --form-placeholder: var(--neutral-medium-gray);
@@ -198,5 +198,15 @@ li.task-item {
 /* Form Container Styles */
 
 .form-container {
-    width: 300px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    border-radius: 10px;
+    background-color: var(--form-background);
+    padding: 25px 15px;
 }
+
+
+
+
