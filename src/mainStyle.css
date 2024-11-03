@@ -94,7 +94,7 @@ body {
   color: var(--sidebar-header-text);
   font-size: 1.6rem;
   font-weight: 600;
-  margin: 25px 25px 15px 15px;
+  margin: 0 0 0 15px;
 }
 
 .nav-sidebar {
@@ -107,6 +107,7 @@ body {
   border-radius: 10px;
   background-color: var(--sidebar-background);
   color: var(--sidebar-list-text);
+  gap: 15px;
 }
 
 .nav-sidebar li {
@@ -132,6 +133,7 @@ body {
     align-items: center;
     justify-content: space-between;
     margin-right: 15px;
+    margin-bottom: 15px;
   }
   
   .add-project-btn {
