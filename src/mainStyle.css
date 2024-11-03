@@ -241,3 +241,20 @@ li.task-item {
     resize: none;
 }
 
+.form-input-lable {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--form-label);
+    width: 5rem;
+}
+
+.form-input-div {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.form-input-div > select {
+    flex: 1;
+}
+
