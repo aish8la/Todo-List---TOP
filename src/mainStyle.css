@@ -3,10 +3,11 @@
     --pure-white: #FFFFFF;              /* Pure white */
     --off-white: #F9F9F9;               /* Very light off-white for subtle contrast */
     --light-off-white: #F2F2F2;         /* Slightly darker off-white for backgrounds */
-    --medium-off-white: #E6E6E6;        /* Medium off-white for elements that need subtle separation */
+    --medium-off-white: #D9D9D9;        /* Darkened sidebar background */
     --dark-off-white: #CCCCCC;          /* Darker off-white for accents */
     --neutral-dark-gray: #333333;       /* Dark neutral for improved text readability */
     --neutral-medium-gray: #666666;     /* Medium gray for secondary text elements */
+    --button-dark-gray: #444444;        /* Dark gray to make sidebar button stand out */
   
     /* Application Elements */
     --background-color: var(--off-white);
@@ -14,20 +15,27 @@
     --primary-text: var(--neutral-dark-gray);
     --header-text: var(--neutral-dark-gray);
     --subheader-text: var(--neutral-medium-gray);
-    --button-background: var(--medium-off-white);
-    --button-text: var(--neutral-dark-gray);
-    --sidebar-background: var(--light-off-white);
+    --button-background: var(--button-dark-gray);   /* Updated to ensure visibility */
+    --button-text: var(--pure-white);
+    --sidebar-background: var(--medium-off-white);
     --sidebar-header-text: var(--neutral-dark-gray);
     --sidebar-list-text: var(--neutral-medium-gray);
     --dialogue-background: var(--pure-white);
     --dialogue-outline: var(--medium-off-white);
-
+  
+    /* Form Colors */
+    --form-background: var(--sidebar-background);  /* Same as sidebar */
+    --form-border: var(--dark-off-white);
+    --form-text: var(--neutral-dark-gray);
+    --form-placeholder: var(--neutral-medium-gray);
+    --form-label: var(--neutral-dark-gray);
+  
     /* Priority Tag Colors */
     --priority-high: #FF5C5C;          /* Bold red to indicate high priority */
     --priority-medium: #FFA726;        /* Vibrant orange for medium priority */
     --priority-low: #8BC34A;           /* Soft green to indicate low priority */
     --priority-none: #B0BEC5;          /* Light gray for no specific priority */
-
+  
     /* Text Colors for Tags */
     --text-on-bright: #FFFFFF;         /* White text for bright tag backgrounds */
     --text-on-light: #333333;          /* Dark gray text for light tag backgrounds */
@@ -189,4 +197,6 @@ li.task-item {
 
 /* Form Container Styles */
 
-
+.form-container {
+    width: 300px;
+}
