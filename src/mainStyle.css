@@ -21,6 +21,16 @@
     --sidebar-list-text: var(--neutral-medium-gray);
     --dialogue-background: var(--pure-white);
     --dialogue-outline: var(--medium-off-white);
+
+    /* Priority Tag Colors */
+    --priority-high: #FF5C5C;          /* Bold red to indicate high priority */
+    --priority-medium: #FFA726;        /* Vibrant orange for medium priority */
+    --priority-low: #8BC34A;           /* Soft green to indicate low priority */
+    --priority-none: #B0BEC5;          /* Light gray for no specific priority */
+
+    /* Text Colors for Tags */
+    --text-on-bright: #FFFFFF;         /* White text for bright tag backgrounds */
+    --text-on-light: #333333;          /* Dark gray text for light tag backgrounds */
   }
 
 * {
@@ -145,4 +155,32 @@ li.task-item {
     display: flex;
     flex-direction: row;
     gap: 10px;
+    align-items: center;
+}
+
+.list-task-priority {
+    background-color: var(--priority-none);
+    color: var(--text-on-light);
+    font-weight: 800;
+    padding: 5px;
+    border-radius: 20px;
+    width: 5rem;
+    max-width: 80px;
+    text-align: center;
+
+}
+
+.list-task-priority.High-Priority {
+    color: var(--text-on-bright);
+    background-color: var(--priority-high);
+}
+
+.list-task-priority.Medium-Priority {
+    color: var(--text-on-bright);
+    background-color: var(--priority-medium);
+}
+
+.list-task-priority.Low-Priority {
+    color: var(--text-on-bright);
+    background-color: var(--priority-low);
 }
