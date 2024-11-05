@@ -1,1 +1,1 @@
-import "./mainStyle.css"
+import "./style.css"
