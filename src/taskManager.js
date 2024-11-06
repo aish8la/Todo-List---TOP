@@ -81,8 +81,6 @@ export class taskConstructorClass {
   get completed() {
     return this.#completed;
   }
-
-  
 }
 
 // dummy dependencies
