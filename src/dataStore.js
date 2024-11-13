@@ -1,6 +1,7 @@
 export class DataStoreClass {
-    constructor(taskClass) {
+    constructor(taskClass, subTaskClass) {
         this.taskClass = taskClass;
+        this.subTaskClass = subTaskClass;
     }
 
     #taskArray = [];
@@ -29,7 +30,5 @@ export class DataStoreClass {
             data.completed
         );
         this.#pushToArray(task, this.#taskArray);
-        console.log(task);
-        console.log(this.#taskArray);
     };
 }

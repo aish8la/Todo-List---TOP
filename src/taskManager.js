@@ -49,8 +49,6 @@ export class TaskClass {
     this.#dueDate = dueDate;
   }
 
-  // Implement subtask feature here !!!
-
   set completed(completeStatus) {
     if (typeof completeStatus === "boolean") {
       this.#completed = completeStatus;
@@ -77,10 +75,24 @@ export class TaskClass {
     return this.#dueDate;
   }
 
-  // Implement a getter that creates a copy of the subtask object here !!!
-
   get completed() {
     return this.#completed;
+  }
+}
+
+export class SubTaskClass {
+  #subTaskID;
+  #subTaskDescription;
+  #subTackCompleted;
+
+  constructor(
+    taskID,
+    description,
+    completed
+  ) {
+    this.#subTaskID = taskID;
+    this.#subTaskDescription = description;
+    this.#subTackCompleted = completed;
   }
 }
 
