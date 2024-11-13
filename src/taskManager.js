@@ -1,4 +1,14 @@
 export class TaskClass {
+
+  #taskID;
+  #taskName;
+  #description;
+  #priority;
+  #project;
+  #dueDate;
+  #subtaskObj;
+  #completed;
+
   constructor(
     taskID,
     taskName,
@@ -18,15 +28,6 @@ export class TaskClass {
     this.#subtaskObj = subtaskObj;
     this.#completed = completed;
   }
-
-  #taskID;
-  #taskName;
-  #description;
-  #priority;
-  #project;
-  #dueDate;
-  #subtaskObj;
-  #completed;
 
   set taskName(name) {
     this.#taskName = name;
