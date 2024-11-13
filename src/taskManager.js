@@ -1,4 +1,4 @@
-export class taskConstructorClass {
+export class TaskClass {
   constructor(
     taskID,
     taskName,
