@@ -37,9 +37,35 @@ export class DataStoreClass {
             data.project,
             data.dueDate,
             this.#createSubTask(data.subTaskArr),
-            data.completed,
         );
         this.#taskArray.push(task);
         console.log(this.#taskArray);
     };
+
+    modfiyTask(dataObj) {
+        const data = dataObj;
+        const taskElementID = this.#taskArray.findIndex(element => {
+            return element.taskID === data.taskID;
+        });
+
+        const taskObj = this.#taskArray[taskElementID];
+        
+        for (let key in taskObj) {
+            //skips the code if the current key is "completed"
+            if(key === "completed") {
+                continue;
+            }
+            // Leaves as with an empty string if the key is not defined in the new data
+            if(data[key] === undefined) {
+                taskObj[key] = "";
+            } else {
+                // if current key is dueDate then handles empty strings
+                if(key === "dueDate") {
+                    taskObj[key] = data.dueDate === "" ? "" : new Date(data.dueDate);
+                }
+                taskObj[key] = data[key];
+            }
+        }
+        console.log(taskObj);
+    }
 }
