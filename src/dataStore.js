@@ -1,3 +1,5 @@
+import { formatDate } from "date-fns";
+
 export class DataStoreClass {
     constructor(taskClass, subTaskClass) {
         this.taskClass = taskClass;
@@ -5,7 +7,7 @@ export class DataStoreClass {
     }
 
     #taskArray = [];
-    #projectListArr = [];
+    #projectListArr = ["Personal", "Work"];
 
     #lastID = 0;
 
@@ -13,8 +15,17 @@ export class DataStoreClass {
         return `task-id-${this.#lastID++}`;
     }
 
-    #pushToArray(element, targetArray) {
-        targetArray.push(element);
+    #createSubTask(subTaskDataArr) {
+        const newArr = [];
+        subTaskDataArr.forEach((element) => {
+            const newSubTask = new this.subTaskClass(
+                this.#idGen(),
+                element.subTaskDescription,
+                element.subTaskCompleted
+            )
+            newArr.push(newSubTask);
+        });
+        return newArr;
     }
 
     createTask(dataObject) {
@@ -26,9 +37,10 @@ export class DataStoreClass {
             data.priority,
             data.project,
             data.dueDate,
-            data.subtaskObj,
-            data.completed
+            this.#createSubTask(data.subTaskArr),
+            data.completed,
         );
-        this.#pushToArray(task, this.#taskArray);
+        this.#taskArray.push(task);
+        console.log(this.#taskArray);
     };
 }

@@ -1,25 +1,33 @@
 import "./style.css";
 import { TaskClass } from "./taskManager";
 import { DataStoreClass } from "./dataStore";
+import { SubTaskClass } from "./taskManager";
 
 // Instantiated Objects
 
-const App = new DataStoreClass(TaskClass);
+const App = new DataStoreClass(TaskClass, SubTaskClass);
 
-App.createTask(
-    {
-        taskID: "T475",
-        taskName: "Website Redesign",
-        description: "Update the company website with new branding elements and improve mobile responsiveness",
-        priority: "Medium",
-        project: "Marketing",
-        dueDate: new Date("2024-02-15"),
-        subtaskObj: {
-            subtask1: "Design mockups",
-            subtask2: "Code frontend",
-            subtask3: "Test responsiveness",
-            subtask4: "Deploy changes"
-        },
-        completed: false
-    }  
-)
+// Sample Data 
+
+const taskData = {
+    taskName: "Complete To-Do App",
+    description: "Finalize all features for the to-do list app.",
+    priority: "High",
+    project: "Web Development",
+    dueDate: new Date("2024-12-01"),
+    subTaskArr: [
+      { 
+        subTaskDescription: "Design UI", 
+        subTaskCompleted: true 
+      },
+      { 
+        subTaskDescription: "Implement Task CRUD functionality", 
+      },
+      { 
+        subTaskDescription: "Test app for bugs", 
+        subTaskCompleted: false 
+      }
+    ],
+  };
+
+App.createTask(taskData);
