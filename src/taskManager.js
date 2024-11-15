@@ -24,7 +24,7 @@ export class TaskClass {
     this.#description = description;
     this.#priority = priority;
     this.#project = project;
-    this.#dueDate = dueDate;
+    this.#dueDate = new Date(dueDate);
     this.#subTaskArr = subTaskArr;
     this.#completed = completed;
   }

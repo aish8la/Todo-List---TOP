@@ -14,7 +14,7 @@ const taskData = {
     description: "Finalize all features for the to-do list app.",
     priority: "High",
     project: "Web Development",
-    dueDate: new Date("2024-12-01"),
+    dueDate: "2024-12-01",
     subTaskArr: [
       { 
         subTaskDescription: "Design UI", 
