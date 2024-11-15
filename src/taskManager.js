@@ -87,16 +87,13 @@ export class TaskClass {
 }
 
 export class SubTaskClass {
-  #subTaskID;
   #subTaskDescription;
   #subTaskCompleted;
 
   constructor(
-    taskID,
     description,
     completed = false
   ) {
-    this.#subTaskID = taskID;
     this.#subTaskDescription = description;
     this.#subTaskCompleted = completed;
   }

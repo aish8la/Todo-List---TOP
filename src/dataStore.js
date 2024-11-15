@@ -19,7 +19,6 @@ export class DataStoreClass {
         const newArr = [];
         subTaskDataArr.forEach((element) => {
             const newSubTask = new this.subTaskClass(
-                this.#idGen(),
                 element.subTaskDescription,
                 element.subTaskCompleted
             )
