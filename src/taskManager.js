@@ -25,7 +25,6 @@ export class TaskClass {
     }
 
     this.subTaskArr = subTaskArr;
-    this.completed = completed;
   }
 
   #createdDate = new Date()
