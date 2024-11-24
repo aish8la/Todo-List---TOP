@@ -3,11 +3,13 @@ import { TaskClass } from "./taskManager";
 import { DataStoreClass } from "./dataStore";
 import { SubTaskClass } from "./taskManager";
 import { UIControllerClass } from "./UIController";
+import { taskViewClass } from "./taskView";
 
 // Instantiated Objects
 
-const App = new DataStoreClass(TaskClass, SubTaskClass);
+const app = new DataStoreClass(TaskClass, SubTaskClass);
 const UI = new UIControllerClass();
+const taskView = new taskViewClass(app);
 
 // Sample Data 
 
@@ -33,12 +35,16 @@ const taskData = {
     ],
   };
 
-App.createTask(taskData);
-App.createTask(taskData);
+app.createTask(taskData);
+app.createTask(taskData);
 
-App.modfiyTask(
+app.modfiyTask(
     {
         taskID: "task-id-1",
         taskName: "Changed",
     }
 );
+
+app.taskArr[0].toggleComplete();
+
+taskView.filterCompleteTasks();
