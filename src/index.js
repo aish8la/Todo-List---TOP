@@ -45,6 +45,6 @@ app.modfiyTask(
     }
 );
 
-app.taskArr[0].toggleComplete();
+app.taskCompleteToggle("task-id-1");
 
 taskView.filterCompleteTasks();

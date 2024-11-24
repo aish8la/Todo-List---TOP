@@ -68,6 +68,13 @@ export class DataStoreClass {
         }
     }
 
+    taskCompleteToggle(taskID) {
+        const taskIndex = this.#taskArray.findIndex(e => {
+            return taskID === e.taskID;
+        });
+        this.#taskArray[taskIndex].toggleComplete();
+    }
+
     get taskArr() {
         return this.#taskArray;
     }
