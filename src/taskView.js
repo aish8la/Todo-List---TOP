@@ -1,8 +1,15 @@
 export class taskViewClass {
     constructor(taskObj) {
         this.taskDataObj = taskObj;
+        this.tasks = taskObj.taskArr || [];
+        
     }
 
-    tasks = this.taskDataObj.taskArr;
+    filterCompleteTasks() {
+        const incompleteTasks = this.tasks.filter(e => {
+            return !e.completed;
+        })
+        console.log(incompleteTasks);
+    }
 
 }
