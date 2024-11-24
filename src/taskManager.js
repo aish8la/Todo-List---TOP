@@ -36,6 +36,10 @@ export class TaskClass {
   get createdDate() {
     return this.#createdDate;
   }
+
+  toggleComplete() {
+    this.completed = this.completed ? false : true;
+  }
 }
 
 export class SubTaskClass {
