@@ -5,7 +5,10 @@ export class UIControllerClass {
         this.form.addEventListener("submit", e => {
             e.preventDefault();
             const inputs = this.form.querySelectorAll('input');
-            console.log(inputs);
+            const due = inputs[1].value;
+            console.log(`selected time: ${due}`);
+            console.log(`in local time: ${new Date(due)}`);
+            console.log(`in UTC time: ${new Date(due).toISOString()}`);
         });
     }
 }
