@@ -6,7 +6,47 @@ export class DataStoreClass {
         this.subTaskClass = subTaskClass;
     }
 
-    #taskArray = [];
+    #taskArray = [
+        {
+            taskID: "task-id-3",
+            taskName: "Team Meeting",
+            description: "Discuss project progress and next steps.",
+            priority: "Low",
+            project: "Web Development",
+            dueDate: "2024-11-30",
+            subTaskArr: [
+              { subTaskDescription: "Prepare meeting agenda", subTaskCompleted: true },
+              { subTaskDescription: "Share updates on tasks", subTaskCompleted: false },
+              { subTaskDescription: "Record meeting minutes", subTaskCompleted: false },
+            ],
+          },
+          {
+            taskID: "task-id-1",
+            taskName: "Complete To-Do App",
+            description: "Finalize all features for the to-do list app.",
+            priority: "High",
+            project: "Web Development",
+            dueDate: "2024-12-01",
+            subTaskArr: [
+              { subTaskDescription: "Design UI", subTaskCompleted: true },
+              { subTaskDescription: "Implement Task CRUD functionality", subTaskCompleted: false },
+              { subTaskDescription: "Test app for bugs", subTaskCompleted: false },
+            ],
+          },
+          {
+            taskID: "task-id-2",
+            taskName: "Write Documentation",
+            description: "Create a detailed user guide for the app.",
+            priority: "Medium",
+            project: "Web Development",
+            dueDate: "2024-12-05",
+            subTaskArr: [
+              { subTaskDescription: "Outline documentation structure", subTaskCompleted: true },
+              { subTaskDescription: "Write usage examples", subTaskCompleted: false },
+              { subTaskDescription: "Review for clarity", subTaskCompleted: false },
+            ],
+          },
+    ];
     #projectListArr = ["Personal", "Work"];
 
     #lastID = 0;

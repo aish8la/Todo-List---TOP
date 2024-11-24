@@ -13,38 +13,42 @@ const taskView = new taskViewClass(app);
 
 // Sample Data 
 
-const taskData = {
-    taskID: "task-id-1",
-    taskName: "Complete To-Do App",
-    description: "Finalize all features for the to-do list app.",
-    priority: "High",
-    project: "Web Development",
-    dueDate: "2024-12-01",
-    subTaskArr: [
-      { 
-        subTaskDescription: "Design UI", 
-        subTaskCompleted: true 
-      },
-      { 
-        subTaskDescription: "Implement Task CRUD functionality", 
-      },
-      { 
-        subTaskDescription: "Test app for bugs", 
-        subTaskCompleted: false 
-      }
-    ],
-  };
+// const taskData = {
+//     taskID: "task-id-1",
+//     taskName: "Complete To-Do App",
+//     description: "Finalize all features for the to-do list app.",
+//     priority: "High",
+//     project: "Web Development",
+//     dueDate: "2024-12-01",
+//     subTaskArr: [
+//       { 
+//         subTaskDescription: "Design UI", 
+//         subTaskCompleted: true 
+//       },
+//       { 
+//         subTaskDescription: "Implement Task CRUD functionality", 
+//       },
+//       { 
+//         subTaskDescription: "Test app for bugs", 
+//         subTaskCompleted: false 
+//       }
+//     ],
+//   };
 
-app.createTask(taskData);
-app.createTask(taskData);
+// app.createTask(taskData);
+// app.createTask(taskData);
 
-app.modfiyTask(
-    {
-        taskID: "task-id-1",
-        taskName: "Changed",
-    }
-);
+// app.deleteTask("task-id-0");
 
-app.taskCompleteToggle("task-id-1");
+// app.modfiyTask(
+//     {
+//         taskID: "task-id-1",
+//         taskName: "Changed",
+//     }
+// );
 
-taskView.filterCompleteTasks();
+// app.taskCompleteToggle("task-id-1");
+
+// taskView.filterCompleteTasks();
+
+taskView.sortPriority();
