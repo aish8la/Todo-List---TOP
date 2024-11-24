@@ -66,7 +66,6 @@ export class DataStoreClass {
                 taskObj[key] = data[key];
             }
         }
-        console.log(taskObj);
     }
 
     get taskArr() {
