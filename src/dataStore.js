@@ -68,4 +68,8 @@ export class DataStoreClass {
         }
         console.log(taskObj);
     }
+
+    get taskArr() {
+        return this.#taskArray;
+    }
 }
