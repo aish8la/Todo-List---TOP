@@ -75,6 +75,14 @@ export class DataStoreClass {
         this.#taskArray[taskIndex].toggleComplete();
     }
 
+    deleteTask(taskID) {
+        const taskIndex = this.#taskArray.findIndex(e => {
+            return taskID === e.taskID;
+        });
+
+        this.#taskArray.splice(taskIndex, 1);
+    }
+
     get taskArr() {
         return this.#taskArray;
     }
