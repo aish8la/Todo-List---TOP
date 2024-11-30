@@ -1,4 +1,4 @@
-import { compareAsc } from "date-fns";
+import { compareAsc, differenceInCalendarDays } from "date-fns";
 
 export class taskViewClass {
     constructor(taskObj) {
@@ -16,6 +16,14 @@ export class taskViewClass {
             return !e.completed;
         });
         return incompleteTasks;
+    }
+
+    filterDayDifference(numOfDays) {
+        const currentDate = new Date();
+        const dayDiffFilteredTask = this.tasks.filter(e => {
+            return differenceInCalendarDays(e.dueDate, currentDate) <= numOfDays;
+        });
+        return dayDiffFilteredTask;
     }
 
     sortPriority() {

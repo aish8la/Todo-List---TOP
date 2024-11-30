@@ -51,4 +51,4 @@ const taskView = new taskViewClass(app);
 
 // taskView.filterCompleteTasks();
 
-taskView.sortPriority();
+taskView.filterDayDifference(0);
