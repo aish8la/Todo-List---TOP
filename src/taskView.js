@@ -1,3 +1,5 @@
+import { compareAsc } from "date-fns";
+
 export class taskViewClass {
     constructor(taskObj) {
         this.taskDataObj = taskObj;
@@ -13,7 +15,7 @@ export class taskViewClass {
         const incompleteTasks = this.tasks.filter(e => {
             return !e.completed;
         });
-        console.log(incompleteTasks);
+        return incompleteTasks;
     }
 
     sortPriority() {
@@ -22,5 +24,12 @@ export class taskViewClass {
         const prioritySorted = this.tasks.toSorted((a, b) => {
             return priorityOder[a.priority] - priorityOder[b.priority];
         });
+        return prioritySorted;
+    }
+
+    sordDue() {
+        this.updateArr();
+        const sortedAscDue = this.tasks.toSorted(compareAsc);
+        return sortedAscDue;
     }
 }
