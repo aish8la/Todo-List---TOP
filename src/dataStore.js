@@ -120,6 +120,10 @@ export class DataStoreClass {
             return taskID === e.taskID;
         });
 
+        if(taskIndex === -1) {
+            return console.log("The task you are trying to delete does not exist"); //TODO: Add error handling
+        }
+        
         this.#taskArray.splice(taskIndex, 1);
     }
 
