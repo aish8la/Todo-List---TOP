@@ -12,7 +12,7 @@ export class DataStoreClass {
             taskName: "Team Meeting",
             description: "Discuss project progress and next steps.",
             priority: "Low",
-            project: "Web Development",
+            project: "Personal",
             dueDate: "2024-11-30",
             subTaskArr: [
               { subTaskDescription: "Prepare meeting agenda", subTaskCompleted: true },
@@ -25,7 +25,7 @@ export class DataStoreClass {
             taskName: "Complete To-Do App",
             description: "Finalize all features for the to-do list app.",
             priority: "High",
-            project: "Web Development",
+            project: "Personal",
             dueDate: "2024-12-01",
             subTaskArr: [
               { subTaskDescription: "Design UI", subTaskCompleted: true },
@@ -38,7 +38,7 @@ export class DataStoreClass {
             taskName: "Write Documentation",
             description: "Create a detailed user guide for the app.",
             priority: "Medium",
-            project: "Web Development",
+            project: "Personal",
             dueDate: "2024-12-05",
             subTaskArr: [
               { subTaskDescription: "Outline documentation structure", subTaskCompleted: true },
@@ -133,6 +133,26 @@ export class DataStoreClass {
 
         this.#projectListArr.push(prjName);
     }
+
+    deleteProject(prjName) {
+
+        if(this.#taskArray.some(task => {
+            return task.project.toLowerCase() === prjName.toLowerCase();
+        })) {
+            return console.log("The project you are trying to delete contains tasks"); //TODO: Add a error handler for this
+        }
+
+        const indexProject = this.#projectListArr.findIndex(project => {
+            return project.toLowerCase() === prjName.toLowerCase();
+        });
+
+        if(indexProject === -1){
+            return console.log("The project you are trying to delete does not exist"); //TODO: Add error handlings
+        }
+
+        this.#projectListArr.splice(indexProject,1);
+    }
+
 
     get taskArr() {
         return this.#taskArray;
