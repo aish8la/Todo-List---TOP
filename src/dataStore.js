@@ -123,6 +123,17 @@ export class DataStoreClass {
         this.#taskArray.splice(taskIndex, 1);
     }
 
+    addProject(prjName) {
+
+        if(this.#projectListArr.some(str => {
+            return str.toLowerCase() === prjName.toLowerCase()
+        })) {
+            return console.log("Project with that name already exists"); //TODO: Add propper error handling
+        }
+
+        this.#projectListArr.push(prjName);
+    }
+
     get taskArr() {
         return this.#taskArray;
     }
