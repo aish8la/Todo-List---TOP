@@ -3,8 +3,8 @@ import {
   differenceInCalendarDays,
   isWithinInterval,
   interval,
-  isPast,
-  isToday,
+  isFuture,
+  startOfDay,
 } from "date-fns";
 
 export class taskViewClass {
@@ -79,6 +79,15 @@ export class taskViewClass {
     this.defaultSort();
     this.tasks = this.filterDayDifference(0);
 
+    return this.tasks;
+  }
+
+  upcomingFiltered() {
+    this.updateArr();
+    this.defaultSort();
+    this.tasks = this.tasks.filter(task => {
+      return isFuture(startOfDay(task.dueDate));
+    });
     return this.tasks;
   }
 }
