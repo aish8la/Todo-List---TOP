@@ -35,7 +35,7 @@ export class DataStoreClass {
       description: "Finalize all features for the to-do list app.",
       priority: "High",
       project: "Personal",
-      dueDate: "2024-03-01",
+      dueDate: "2024-12-31",
       subTaskArr: [
         { subTaskDescription: "Design UI", subTaskCompleted: true },
         {
@@ -51,7 +51,7 @@ export class DataStoreClass {
       description: "Create a detailed user guide for the app.",
       priority: "Medium",
       project: "Personal",
-      dueDate: "2024-04-01",
+      dueDate: "2024-12-06",
       subTaskArr: [
         {
           subTaskDescription: "Outline documentation structure",

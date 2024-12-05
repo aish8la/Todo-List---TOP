@@ -3,6 +3,8 @@ import {
   differenceInCalendarDays,
   isWithinInterval,
   interval,
+  isPast,
+  isToday,
 } from "date-fns";
 
 export class taskViewClass {
@@ -61,10 +63,22 @@ export class taskViewClass {
   }
 
   defaultSort() {
-    this.updateArr();
     this.tasks = this.filterCompleteTasks();
     this.tasks = this.sortPriority();
     this.tasks = this.sortDue();
   }
 
+  allTasks() {
+    this.updateArr();
+    this.defaultSort();
+    return this.tasks;
+  }
+
+  todayFiltered() {
+    this.updateArr();
+    this.defaultSort();
+    this.tasks = this.filterDayDifference(0);
+
+    return this.tasks;
+  }
 }
