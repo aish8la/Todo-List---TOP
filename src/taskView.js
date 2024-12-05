@@ -60,4 +60,11 @@ export class taskViewClass {
     return sortedAscDue;
   }
 
+  defaultSort() {
+    this.updateArr();
+    this.tasks = this.filterCompleteTasks();
+    this.tasks = this.sortPriority();
+    this.tasks = this.sortDue();
+  }
+
 }
