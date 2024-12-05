@@ -51,6 +51,6 @@ const taskView = new taskViewClass(app);
 
 // taskView.filterCompleteTasks();
 
-taskView.filterDayDifference(0);
-app.addProject("Personal");
-app.deleteProject("work");
+// taskView.filterDayDifference(0);
+// app.addProject("Personal");
+// app.deleteProject("work");

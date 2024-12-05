@@ -1,4 +1,4 @@
-import { compareAsc, differenceInCalendarDays } from "date-fns";
+import { compareAsc, differenceInCalendarDays, isWithinInterval, interval } from "date-fns";
 
 export class taskViewClass {
   constructor(taskObj) {
@@ -31,6 +31,14 @@ export class taskViewClass {
       return task.project.toLowerCase() === project.toLowerCase();
     });
     return filterByProject;
+  }
+
+  filterDateRange(startDate, endDate) {
+    const rangeFiltered = this.tasks.filter(task => {
+      return isWithinInterval(task.dueDate, interval(startDate, endDate));
+    });
+
+    return rangeFiltered;
   }
 
   sortPriority() {
