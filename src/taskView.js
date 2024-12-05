@@ -1,4 +1,9 @@
-import { compareAsc, differenceInCalendarDays, isWithinInterval, interval } from "date-fns";
+import {
+  compareAsc,
+  differenceInCalendarDays,
+  isWithinInterval,
+  interval,
+} from "date-fns";
 
 export class taskViewClass {
   constructor(taskObj) {
@@ -33,7 +38,7 @@ export class taskViewClass {
   }
 
   filterDateRange(startDate, endDate) {
-    const rangeFiltered = this.tasks.filter(task => {
+    const rangeFiltered = this.tasks.filter((task) => {
       return isWithinInterval(task.dueDate, interval(startDate, endDate));
     });
 
@@ -48,8 +53,10 @@ export class taskViewClass {
     return prioritySorted;
   }
 
-  sordDue() {
-    const sortedAscDue = this.tasks.toSorted(compareAsc);
+  sortDue() {
+    const sortedAscDue = this.tasks.toSorted((a, b) => {
+      return compareAsc(a.dueDate, b.dueDate);
+    });
     return sortedAscDue;
   }
 

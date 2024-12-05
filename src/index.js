@@ -54,3 +54,4 @@ const taskView = new taskViewClass(app);
 // taskView.filterDayDifference(0);
 // app.addProject("Personal");
 // app.deleteProject("work");
+taskView.defaultSort();
