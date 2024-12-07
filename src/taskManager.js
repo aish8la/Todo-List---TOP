@@ -1,7 +1,6 @@
 export class TaskClass {
 
   #taskID;
-  #createdDate;
 
   constructor(
     taskID,
@@ -27,7 +26,7 @@ export class TaskClass {
     }
 
     this.subTaskArr = subTaskArr;
-    this.#createdDate = createdDate || new Date();
+    this._createdDate = createdDate || new Date();
     this.completed = completed || false;
   }
 
@@ -36,7 +35,7 @@ export class TaskClass {
   }
 
   get createdDate() {
-    return this.#createdDate;
+    return this._createdDate;
   }
 
   toggleComplete() {
