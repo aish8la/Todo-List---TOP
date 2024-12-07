@@ -83,9 +83,19 @@ export class DataStoreClass {
   }
 
   createTask(dataObject) {
-    const data = dataObject;
+    const data = {
+      taskID: dataObject.taskID || this.#idGen(),
+      taskName: dataObject.taskName || "",
+      description: dataObject.description || "",
+      priority: dataObject.priority || "",
+      project: dataObject.project || "",
+      dueDate: dataObject.dueDate || "",
+      subTaskArr: dataObject.subTaskArr || "",
+      createdDate: dataObject.createdDate || "",
+      completed: dataObject.createdDate || false,
+    };
     const task = new this.taskClass(
-      data.taskID || this.#idGen(),
+      data.taskID,
       data.taskName,
       data.description,
       data.priority,

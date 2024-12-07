@@ -86,8 +86,6 @@ const tasksArray = [
         { subTaskDescription: "Book flights and accommodation" },
         { subTaskDescription: "Prepare a travel checklist", subTaskCompleted: false }
       ],
-      createdDate: null,
-      completed: false,
     }
   ];
   
