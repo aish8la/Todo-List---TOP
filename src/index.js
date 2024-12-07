@@ -55,3 +55,4 @@ const taskView = new taskViewClass(app);
 // app.addProject("Personal");
 // app.deleteProject("work");
 taskView.upcomingFiltered();
+app.saveToStorage();

@@ -177,4 +177,13 @@ export class DataStoreClass {
   get taskArr() {
     return this.#taskArray;
   }
+
+  saveToStorage() {
+    const dataObj = {
+      tasks: this.#taskArray,
+      projects: this.#projectListArr,
+      lastID: this.#lastID
+    }
+    localStorage.setItem("todoLocalData", JSON.stringify(dataObj));
+  }
 }
