@@ -29,7 +29,7 @@ export class DataStoreClass {
 
   createTask(dataObject) {
     const data = {
-      taskID: dataObject.taskID || this.#idGen(),
+      taskID: this.#idGen(),
       taskName: dataObject.taskName || "",
       description: dataObject.description || "",
       priority: dataObject.priority || "Low",
@@ -39,6 +39,7 @@ export class DataStoreClass {
       createdDate: dataObject.createdDate || "",
       completed: dataObject.createdDate || false,
     };
+    
     const task = new this.taskClass(
       data.taskID,
       data.taskName,
@@ -153,14 +154,12 @@ export class DataStoreClass {
     const dataObj = {
       tasks: this.#taskArray,
       projects: this.#projectListArr,
-      lastID: this.#lastID
     }
     localStorage.setItem("todoLocalData", JSON.stringify(dataObj));
   }
 
   loadFromStorage() {
       const dataObj = JSON.parse(localStorage.getItem("todoLocalData"));
-      this.#lastID = dataObj.lastID;
       this.#projectListArr = dataObj.projects;
       this.importTasks(dataObj.tasks);
   }
