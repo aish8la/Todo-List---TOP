@@ -13,29 +13,31 @@ const taskView = new taskViewClass(app);
 
 // Sample Data 
 
-// const taskData = {
-//     taskID: "task-id-1",
-//     taskName: "Complete To-Do App",
-//     description: "Finalize all features for the to-do list app.",
-//     priority: "High",
-//     project: "Web Development",
-//     dueDate: "2024-12-01",
-//     subTaskArr: [
-//       { 
-//         subTaskDescription: "Design UI", 
-//         subTaskCompleted: true 
-//       },
-//       { 
-//         subTaskDescription: "Implement Task CRUD functionality", 
-//       },
-//       { 
-//         subTaskDescription: "Test app for bugs", 
-//         subTaskCompleted: false 
-//       }
-//     ],
-//   };
+const taskData = {
+    taskID: "task-id-25",
+    taskName: "Complete To-Do App",
+    description: "Finalize all features for the to-do list app.",
+    priority: "High",
+    project: "Web Development",
+    dueDate: "2024-12-01",
+    subTaskArr: [
+      { 
+        subTaskDescription: "Design UI", 
+        subTaskCompleted: true 
+      },
+      { 
+        subTaskDescription: "Implement Task CRUD functionality", 
+      },
+      { 
+        subTaskDescription: "Test app for bugs", 
+        subTaskCompleted: false 
+      }
+    ],
+    createdDate: "2024-11-24",
+    completed: true,
+  };
 
-// app.createTask(taskData);
+app.createTask(taskData);
 // app.createTask(taskData);
 
 // app.deleteTask("task-id-0");

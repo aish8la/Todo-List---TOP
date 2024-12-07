@@ -7,60 +7,60 @@ export class DataStoreClass {
   }
 
   #taskArray = [
-    {
-      taskID: "task-id-3",
-      taskName: "Team Meeting",
-      description: "Discuss project progress and next steps.",
-      priority: "Low",
-      project: "Personal",
-      dueDate: "2024-03-01",
-      subTaskArr: [
-        {
-          subTaskDescription: "Prepare meeting agenda",
-          subTaskCompleted: true,
-        },
-        {
-          subTaskDescription: "Share updates on tasks",
-          subTaskCompleted: false,
-        },
-        {
-          subTaskDescription: "Record meeting minutes",
-          subTaskCompleted: false,
-        },
-      ],
-    },
-    {
-      taskID: "task-id-1",
-      taskName: "Complete To-Do App",
-      description: "Finalize all features for the to-do list app.",
-      priority: "High",
-      project: "Personal",
-      dueDate: "2024-12-31",
-      subTaskArr: [
-        { subTaskDescription: "Design UI", subTaskCompleted: true },
-        {
-          subTaskDescription: "Implement Task CRUD functionality",
-          subTaskCompleted: false,
-        },
-        { subTaskDescription: "Test app for bugs", subTaskCompleted: false },
-      ],
-    },
-    {
-      taskID: "task-id-2",
-      taskName: "Write Documentation",
-      description: "Create a detailed user guide for the app.",
-      priority: "Medium",
-      project: "Personal",
-      dueDate: "2024-12-06",
-      subTaskArr: [
-        {
-          subTaskDescription: "Outline documentation structure",
-          subTaskCompleted: true,
-        },
-        { subTaskDescription: "Write usage examples", subTaskCompleted: false },
-        { subTaskDescription: "Review for clarity", subTaskCompleted: false },
-      ],
-    },
+    // {
+    //   taskID: "task-id-3",
+    //   taskName: "Team Meeting",
+    //   description: "Discuss project progress and next steps.",
+    //   priority: "Low",
+    //   project: "Personal",
+    //   dueDate: "2024-03-01",
+    //   subTaskArr: [
+    //     {
+    //       subTaskDescription: "Prepare meeting agenda",
+    //       subTaskCompleted: true,
+    //     },
+    //     {
+    //       subTaskDescription: "Share updates on tasks",
+    //       subTaskCompleted: false,
+    //     },
+    //     {
+    //       subTaskDescription: "Record meeting minutes",
+    //       subTaskCompleted: false,
+    //     },
+    //   ],
+    // },
+    // {
+    //   taskID: "task-id-1",
+    //   taskName: "Complete To-Do App",
+    //   description: "Finalize all features for the to-do list app.",
+    //   priority: "High",
+    //   project: "Personal",
+    //   dueDate: "2024-12-31",
+    //   subTaskArr: [
+    //     { subTaskDescription: "Design UI", subTaskCompleted: true },
+    //     {
+    //       subTaskDescription: "Implement Task CRUD functionality",
+    //       subTaskCompleted: false,
+    //     },
+    //     { subTaskDescription: "Test app for bugs", subTaskCompleted: false },
+    //   ],
+    // },
+    // {
+    //   taskID: "task-id-2",
+    //   taskName: "Write Documentation",
+    //   description: "Create a detailed user guide for the app.",
+    //   priority: "Medium",
+    //   project: "Personal",
+    //   dueDate: "2024-12-06",
+    //   subTaskArr: [
+    //     {
+    //       subTaskDescription: "Outline documentation structure",
+    //       subTaskCompleted: true,
+    //     },
+    //     { subTaskDescription: "Write usage examples", subTaskCompleted: false },
+    //     { subTaskDescription: "Review for clarity", subTaskCompleted: false },
+    //   ],
+    // },
   ];
   #projectListArr = ["Personal", "Work"];
 
@@ -85,13 +85,15 @@ export class DataStoreClass {
   createTask(dataObject) {
     const data = dataObject;
     const task = new this.taskClass(
-      this.#idGen(),
+      data.taskID || this.#idGen(),
       data.taskName,
       data.description,
       data.priority,
       data.project,
       data.dueDate,
-      this.#createSubTask(data.subTaskArr)
+      this.#createSubTask(data.subTaskArr),
+      data.createdDate,
+      data.completed,
     );
     this.#taskArray.push(task);
     console.log(this.#taskArray);
@@ -178,6 +180,10 @@ export class DataStoreClass {
     return this.#taskArray;
   }
 
+  // importTasks(tasksArr) {
+  //   Object.assign(new)
+  // }
+
   saveToStorage() {
     const dataObj = {
       tasks: this.#taskArray,
@@ -186,4 +192,16 @@ export class DataStoreClass {
     }
     localStorage.setItem("todoLocalData", JSON.stringify(dataObj));
   }
+
+  // loadFromStorage() {
+  //   if(localStorage.getItem("todoLocalData")) {
+  //     const dataObj = JSON.parse(localStorage.getItem("todoLocalData"));
+  //     this.#lastID = dataObj.lastID;
+  //     this.#projectListArr = dataObj.projects;
+
+  //     dataObj.tasks.forEach(element => {
+        
+  //     });
+  //   }
+  // }
 }

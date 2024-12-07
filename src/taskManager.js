@@ -1,7 +1,7 @@
 export class TaskClass {
 
   #taskID;
-  completed = false;
+  #createdDate;
 
   constructor(
     taskID,
@@ -11,6 +11,8 @@ export class TaskClass {
     project,
     dueDate,
     subTaskArr = [],
+    createdDate,
+    completed,
   ) {
     this.#taskID = taskID;
     this.taskName = taskName;
@@ -25,9 +27,9 @@ export class TaskClass {
     }
 
     this.subTaskArr = subTaskArr;
+    this.#createdDate = createdDate || new Date();
+    this.completed = completed || false;
   }
-
-  #createdDate = new Date()
 
   get taskID() {
     return this.#taskID;
@@ -48,7 +50,7 @@ export class SubTaskClass {
     completed = false
   ) {
     this.subTaskDescription = description;
-    this.subTaskCompleted = completed;
+    this.subTaskCompleted = completed || false;
   }
 }
 
