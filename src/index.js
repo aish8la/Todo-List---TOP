@@ -89,7 +89,7 @@ const tasksArray = [
     }
   ];
   
-app.importTasks(tasksArray);
+// app.importTasks(tasksArray);
 
 // app.deleteTask("task-id-0");
 
@@ -107,5 +107,8 @@ app.importTasks(tasksArray);
 // taskView.filterDayDifference(0);
 // app.addProject("Personal");
 // app.deleteProject("work");
-taskView.upcomingFiltered();
-app.saveToStorage();
+// taskView.upcomingFiltered();
+// app.saveToStorage();
+
+// Initialize App
+app.initialize(tasksArray);

@@ -12,7 +12,7 @@ export class DataStoreClass {
   #lastID = 0;
 
   #idGen() {
-    return `task-id-${this.#lastID++}`;
+    return `task-id-${++this.#lastID}`;
   }
 
   #createSubTask(subTaskDataArr) {
@@ -159,11 +159,23 @@ export class DataStoreClass {
   }
 
   loadFromStorage() {
-    if(localStorage.getItem("todoLocalData")) {
       const dataObj = JSON.parse(localStorage.getItem("todoLocalData"));
       this.#lastID = dataObj.lastID;
       this.#projectListArr = dataObj.projects;
+      this.importTasks(dataObj.tasks);
+  }
 
+  loadInitialData(defaultData) {
+
+    if(localStorage.getItem("todoLocalData")) {
+      this.loadFromStorage;
+    } else {
+      this.importTasks(defaultData);
+      this.saveToStorage();
     }
+  }
+
+  initialize(initialData) {
+    this.loadInitialData(initialData);
   }
 }
