@@ -180,9 +180,11 @@ export class DataStoreClass {
     return this.#taskArray;
   }
 
-  // importTasks(tasksArr) {
-  //   Object.assign(new)
-  // }
+  importTasks(tasksArr) {
+    tasksArr.forEach(element => {
+      this.createTask(element);
+    });
+  }
 
   saveToStorage() {
     const dataObj = {
