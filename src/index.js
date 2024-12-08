@@ -4,12 +4,14 @@ import { DataStoreClass } from "./dataStore";
 import { SubTaskClass } from "./taskManager";
 import { UIControllerClass } from "./UIController";
 import { taskViewClass } from "./taskView";
+import { DisplayRenderClass } from "./displayController";
 
 // Instantiated Objects
 
 const app = new DataStoreClass(TaskClass, SubTaskClass);
 const UI = new UIControllerClass();
 const taskView = new taskViewClass(app);
+const displayObj = new DisplayRenderClass();
 
 // Sample Data 
 
@@ -112,3 +114,4 @@ const tasksArray = [
 
 // Initialize App
 app.initialize(tasksArray);
+displayObj.displayInit();
