@@ -114,6 +114,27 @@ body {
   padding: 5px 40px;
   margin: 8px;
   border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.project-delete-btn {
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: transparent;
+  transition: all 0.2s ease;
+}
+
+.project-delete-btn::after {
+  content: "\2715";
+}
+
+.project-delete-btn:hover {
+  background-color: var(--button-dark-gray);
+  color: var(--form-delete-button-text);
+  transform: scale(1.05);
 }
 
 .add-task-btn {

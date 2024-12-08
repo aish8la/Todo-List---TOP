@@ -31,8 +31,8 @@
             <button class="add-project-btn" type="button">&#43;</button>
           </div>
           <ul class="project-list no-decoration-list">
-            <li>Personal</li>
-            <li>Work</li>
+            <li>Personal <button class="project-delete-btn"></button></li>
+            <li>Work <button class="project-delete-btn"></button></li>
           </ul>
         </div>
       </div>
@@ -166,6 +166,37 @@
             </button>
           </div>
         </form>
+      </div>
+    </div>
+    
+    <div class="dialog-overlay hidden">
+      <div class="dialog-box">
+        <div class="dialog-title">Confirm</div>
+        <div class="dialog-form">
+          <p class="dialog-message">Are you sure you want to delete this ?</p>
+          <div class="dialog-buttons">
+            <button type="button" class="dialog-button dialog-cancel-btn">
+              Cancel
+            </button>
+            <button type="button" class="dialog-button dialog-save-btn">
+              Yes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dialog-overlay hidden">
+      <div class="dialog-box">
+        <div class="dialog-title">Error</div>
+        <div class="dialog-form">
+          <p class="dialog-message">This project already exists</p>
+          <div class="dialog-buttons">
+            <button type="button" class="dialog-button dialog-save-btn">
+              Ok
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </body>
