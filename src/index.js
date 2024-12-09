@@ -116,3 +116,4 @@ const tasksArray = [
 app.initialize(tasksArray);
 // displayObj.displayInit();
 displayObj.renderNavSidebar();
+displayObj.renderSidebarPrjList();
