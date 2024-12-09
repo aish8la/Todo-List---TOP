@@ -11,6 +11,7 @@ export class taskViewClass {
   constructor(taskObj) {
     this.taskDataObj = taskObj;
     this.tasks = [...taskObj.taskArr] || [];
+    this.projects = taskObj.projectArr;
   }
 
   updateArr() {

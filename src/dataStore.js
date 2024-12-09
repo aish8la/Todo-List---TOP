@@ -136,6 +136,10 @@ export class DataStoreClass {
     return this.#taskArray;
   }
 
+  get projectArr() {
+    return this.#projectListArr;
+  }
+
   importTasks(tasksArr) {
     tasksArr.forEach(element => {
       
