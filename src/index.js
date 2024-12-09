@@ -4,14 +4,14 @@ import { DataStoreClass } from "./dataStore";
 import { SubTaskClass } from "./taskManager";
 import { UIControllerClass } from "./UIController";
 import { taskViewClass } from "./taskView";
-import { DisplayRenderClass } from "./displayController";
+import { MainDisplayElements } from "./displayController";
 
 // Instantiated Objects
 
 const app = new DataStoreClass(TaskClass, SubTaskClass);
 const UI = new UIControllerClass();
 const taskView = new taskViewClass(app);
-const displayObj = new DisplayRenderClass();
+const displayObj = new MainDisplayElements(taskView);
 
 // Sample Data 
 
@@ -115,4 +115,4 @@ const tasksArray = [
 // Initialize App
 app.initialize(tasksArray);
 // displayObj.displayInit();
-console.log(displayObj.elementGen("div", {"class" : "dummy", "id" : "test"}));
+displayObj.renderNavSidebar();
