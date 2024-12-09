@@ -114,4 +114,5 @@ const tasksArray = [
 
 // Initialize App
 app.initialize(tasksArray);
-displayObj.displayInit();
+// displayObj.displayInit();
+console.log(displayObj.elementGen("div", {"class" : "dummy", "id" : "test"}));
