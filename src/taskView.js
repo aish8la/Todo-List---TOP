@@ -14,6 +14,11 @@ export class taskViewClass {
     this.projects = taskObj.projectArr;
   }
 
+  navBarItems = {
+    "Today": this.todayFiltered,
+    "Upcoming": this.upcomingFiltered,
+  }
+
   updateArr() {
     this.tasks = [...this.taskDataObj.taskArr];
   }
