@@ -108,6 +108,7 @@ body {
   background-color: var(--sidebar-background);
   color: var(--sidebar-list-text);
   gap: 15px;
+  order: 0;
 }
 
 .nav-sidebar li {
@@ -187,6 +188,7 @@ body {
 .content-space {
   flex: 1;
   margin: 20px;
+  order: 1;
 }
 
 .content-title {
@@ -271,6 +273,7 @@ li.task-item {
   background-color: var(--form-background);
   display: flex;
   flex-direction: column;
+  order: 2;
 }
 
 .form-close-btn {
