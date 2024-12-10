@@ -52,7 +52,6 @@ export class DataStoreClass {
       data.completed,
     );
     this.#taskArray.push(task);
-    console.log(this.#taskArray);
   }
 
   modfiyTask(dataObj) {
@@ -171,7 +170,7 @@ export class DataStoreClass {
   loadInitialData(defaultData) {
 
     if(localStorage.getItem("todoLocalData")) {
-      this.loadFromStorage;
+      this.loadFromStorage();
     } else {
       this.importTasks(defaultData);
       this.saveToStorage();
