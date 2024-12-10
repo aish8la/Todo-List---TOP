@@ -37,7 +37,7 @@ export class DataStoreClass {
       dueDate: dataObject.dueDate || "",
       subTaskArr: dataObject.subTaskArr || "",
       createdDate: dataObject.createdDate || "",
-      completed: dataObject.createdDate || false,
+      completed: dataObject.completed || false,
     };
     
     const task = new this.taskClass(
