@@ -10,17 +10,17 @@ import {
 export class taskViewClass {
   constructor(taskObj) {
     this.taskDataObj = taskObj;
-    this.tasks = [...taskObj.taskArr] || [];
+    this.tasks = [...(taskObj.taskArr || [])];
     this.projects = taskObj.projectArr;
   }
 
   navBarItems = {
-    "Today": this.todayFiltered,
-    "Upcoming": this.upcomingFiltered,
+    "Today": this.todayFiltered.bind(this),
+    "Upcoming": this.upcomingFiltered.bind(this),
   }
 
   updateArr() {
-    this.tasks = [...this.taskDataObj.taskArr];
+    this.tasks = [...(this.taskDataObj.taskArr || [])];
   }
 
   filterCompleteTasks() {
@@ -32,7 +32,9 @@ export class taskViewClass {
   filterDayDifference(numOfDays) {
     const currentDate = new Date();
     this.tasks = this.tasks.filter((e) => {
-      return differenceInCalendarDays(e.dueDate, currentDate) <= numOfDays;
+      if(differenceInCalendarDays(e.dueDate, currentDate) <= numOfDays) {
+        return true;
+      }
     });
   }
 
@@ -76,7 +78,7 @@ export class taskViewClass {
   todayFiltered() {
     this.updateArr();
     this.defaultSort();
-    this.tasks = this.filterDayDifference(0);
+    this.filterDayDifference(0);
     return this.tasks;
   }
 
