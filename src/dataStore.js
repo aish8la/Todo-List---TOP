@@ -165,6 +165,7 @@ export class DataStoreClass {
       const dataObj = JSON.parse(localStorage.getItem("todoLocalData"));
       this.#projectListArr = dataObj.projects;
       this.importTasks(dataObj.tasks);
+      //TODO: add load projects list from local storage
   }
 
   loadInitialData(defaultData) {
