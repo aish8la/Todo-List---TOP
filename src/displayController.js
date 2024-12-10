@@ -64,13 +64,10 @@ export class MainDisplayElements extends DisplayRenderClass {
                         {
                             tag: "ul",
                             attributes: { class: "category-list no-decoration-list" },
-                            children: [
-                                { tag: "li", content: "Today" },
-                                { tag: "li", content: "Upcoming" },
-                            ],
                         },
                     ],
                 },
+
                 {
                     tag: "div",
                     attributes: { class: "projects-section" },
@@ -100,7 +97,20 @@ export class MainDisplayElements extends DisplayRenderClass {
             ],
         };
 
-       this.displayContainer.appendChild(this.nodeGen(elements));
+        this.displayContainer.appendChild(this.nodeGen(elements));
+        this.renderSidebarMenuList();
+
+    }
+
+    renderSidebarMenuList() {
+
+        const menuList = document.querySelector(".category-list");
+        
+        Object.keys(this.taskViewObj.navBarItems).forEach(key => {
+
+            const list = this.elementGen("li", {"data-list-item": `list-${key}`}, key);
+            menuList.appendChild(list);
+        });
     }
 
     renderSidebarPrjList() {
