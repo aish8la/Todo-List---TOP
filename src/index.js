@@ -22,7 +22,7 @@ const tasksArray = [
       description: "Finalize all features for the to-do list app.",
       priority: "High",
       project: "Web Development",
-      dueDate: "2024-12-01",
+      dueDate: "2024-12-10",
       subTaskArr: [
         { subTaskDescription: "Design UI", subTaskCompleted: true },
         { subTaskDescription: "Implement Task CRUD functionality" },
@@ -37,7 +37,7 @@ const tasksArray = [
       description: "Document all features and setup instructions for the project.",
       priority: "Medium",
       project: "Web Development",
-      dueDate: "2024-12-05",
+      dueDate: "2024-12-10",
       subTaskArr: [
         { subTaskDescription: "Write README file", subTaskCompleted: true },
         { subTaskDescription: "Document API endpoints" },
@@ -52,13 +52,13 @@ const tasksArray = [
       description: "Start learning React basics and build a small project.",
       priority: "High",
       project: "Learning",
-      dueDate: "2024-12-10",
+      dueDate: "2024-12-11",
       subTaskArr: [
         { subTaskDescription: "Watch React tutorials", subTaskCompleted: true },
         { subTaskDescription: "Practice building components" },
         { subTaskDescription: "Create a mini React app", subTaskCompleted: false }
       ],
-      createdDate: "2024-11-26",
+      createdDate: "2025-11-26",
       completed: false,
     },
     {
@@ -114,6 +114,13 @@ const tasksArray = [
 
 // Initialize App
 app.initialize(tasksArray);
+taskView.updateArr();
+
+
+
+// console.log(app.taskArr);
 // displayObj.displayInit();
 displayObj.renderNavSidebar();
 displayObj.renderSidebarPrjList();
+displayObj.renderTasksWindow();
+console.log(taskView.tasks);
