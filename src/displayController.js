@@ -318,9 +318,40 @@ export class MainDisplayElements extends DisplayRenderClass {
         ]
     } 
 
-    renderForm() {
+
+    // This object contains a map of form input name attribute value as key and task objects key name as value
+    mapOfFormFields = {
+        "taskName" : "taskName",
+        "description" : "description",
+        "priority" : "priority",
+        "project" : "project",
+        "dueDate" : "dueDate"
+    }
+
+
+    renderForm(taskID) {
 
         const formElm = this.nodeGen(this.formStrucure);
+
+        if(taskID) {
+            const currentTask = this.taskViewObj.findTaskByID(taskID);
+            let formField;
+    
+            Object.entries(this.mapOfFormFields).forEach(([key, data]) => {
+                formField = formElm.querySelector(`[name="${key}"]`);
+                if(formField.type === "date") {
+                    formField.value = format(currentTask[data], 'yyyy-MM-dd');
+                } else {
+                    formField.value = currentTask[data];
+                }
+
+                //TODO: ADD FUNCTION TO LOAD SUBTASKS WHEN ID IS ENTERED
+          
+            });
+        }
+
+
+
         this.displayContainer.appendChild(formElm);
         this.updateProjectOption(formElm);
     }

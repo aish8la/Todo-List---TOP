@@ -123,5 +123,7 @@ taskView.updateArr();
 displayObj.renderNavSidebar();
 displayObj.renderSidebarPrjList();
 displayObj.renderTasksWindow();
-displayObj.renderForm();
+displayObj.renderForm("task-id-4");
 // console.log(taskView.tasks);
+// console.log(displayObj.taskViewObj.findTaskByID("task-id-4"));
+// console.log(taskView.findTaskByID("task-id-4"));
