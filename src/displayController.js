@@ -182,4 +182,145 @@ export class MainDisplayElements extends DisplayRenderClass {
         });
         
     }
+
+    //Form Render
+
+    formStrucure = {
+        tag: "div",
+        attributes: {class: "form-container"},
+        children: [
+            {
+                tag: "button",
+                attributes: {class:"form-close-btn"},
+                content: "\u2716",
+            },
+            {
+                tag: "form",
+                attributes: {"action":"", "method": "post", "class": "task-form"},
+                children: [
+                    {
+                        tag:"div",
+                        attributes: {"class": "form-title"},
+                        content: "Task:"
+                    },
+                    {
+                        tag: "input",
+                        attributes: {"type": "text", "class":"form-task-title form-input", "placeholder": "Task Name", "required":"", "name": "taskName"},
+                    },
+                    {
+                        tag: "textarea",
+                        attributes: {"class": "form-task-description form-input", "placeholder": "Description", "name": "description"}
+                    },
+                    {
+                        tag: "div",
+                        attributes: {"class": "form-input-div priority-input"},
+                        children: [
+                            {
+                                tag: "label",
+                                attributes: {"for": "priority", "class": "form-input-lable"},
+                                content: "Priority"
+                            },
+                            {
+                                tag: "select",
+                                attributes: {"id": "priority", "name": "priority", "class": "form-input priority-input"},
+                                children: [
+                                    {
+                                        tag: "option",
+                                        attributes: {"selected":""},
+                                        content: "Low"
+                                    },
+                                    {
+                                        tag: "option",
+                                        content: "Medium"
+                                    },
+                                    {
+                                        tag: "option",
+                                        content: "High"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        tag:"div",
+                        attributes: {"class": "form-input-div project-input"},
+                        children: [
+                            {
+                                tag: "label",
+                                attributes: {"for": "project", "class": "form-input-lable"},
+                                content: "Project"
+                            },
+                            {
+                                tag: "select",
+                                attributes: {"id": "project", "name": "project", "class": "form-input project-input"},
+                            }
+                        ]
+                    },
+                    {
+                        tag: "div",
+                        attributes: {"class": "form-input-div due-date-input"},
+                        children: [
+                            {
+                                tag: "label",
+                                attributes: {"for": "due-date", "class": "form-input-lable"},
+                                content: "Due Date"
+                            },
+                            {
+                                tag: "input",
+                                attributes: {"type": "date", "id": "due-date", "name":"dueDate", "class": "form-input due-date-input"}
+                            }
+                        ]
+                    },
+                    {
+                        tag: "div",
+                        attributes: {"class": "form-sub-task-container"},
+                        children: [
+                            {
+                                tag: "div",
+                                attributes: {"class": "sub-task-title-ctn"},
+                                children: [
+                                    {
+                                        tag: "div",
+                                        attributes: {"class": "form-sub-title"},
+                                        content: "Subtask:"
+                                    },
+                                    {
+                                        tag: "button",
+                                        attributes: {"class": "sub-task-btn", "type": "button"},
+                                        content: "\u002B Add Subtask"
+                                    },
+                                ]
+                            },
+                            {
+                                tag: "ul",
+                                attributes: {"class": "sub-task-list-ctn no-decoration-list"},
+                            }
+                        ]
+                    },
+                    {
+                        tag: "div",
+                        attributes: {"class": "form-button-div"},
+                        children: [
+                            {
+                                tag: "button",
+                                attributes: {"type" : "button", "class" : "form-button delete-task-btn"},
+                                content: "Delete"
+                            },
+                            {
+                                tag: "button",
+                                attributes: {"type" : "submit", "class" : "form-button save-task-btn"},
+                                content: "Save"
+                            },
+                        ]
+                    }
+                ]
+            }
+        ]
+    } 
+
+    renderForm() {
+
+        const formElm = this.nodeGen(this.formStrucure);
+        this.displayContainer.appendChild(formElm);
+    }
 }

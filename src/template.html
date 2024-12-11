@@ -76,7 +76,7 @@
         </ul>
       </div> -->
       
-      <div class="form-container">
+      <!-- <div class="form-container">
         <button class="form-close-btn">&#10006;</button>
         <form action="" method="post" class="task-form">
           <div class="form-title">Task:</div>
@@ -84,8 +84,11 @@
             type="text"
             class="form-task-title form-input"
             placeholder="Task Name"
+            required
+            name="taskName"
           />
           <textarea
+            name="description"
             class="form-task-description form-input"
             placeholder="Description"
           ></textarea>
@@ -96,8 +99,7 @@
               name="priority"
               class="form-input priority-input"
             >
-              <option selected>None</option>
-              <option>Low</option>
+              <option selected>Low</option>
               <option>Medium</option>
               <option>High</option>
             </select>
@@ -109,7 +111,7 @@
               name="project"
               class="form-input project-input"
             >
-              <option>Personal</option>
+              <option selected>Personal</option>
               <option>Work</option>
             </select>
           </div>
@@ -118,7 +120,7 @@
             <input
               type="date"
               id="due-date"
-              name="due-date"
+              name="dueDate"
               class="form-input due-date-input"
             />
           </div>
@@ -159,7 +161,7 @@
             </button>
           </div>
         </form>
-      </div>
+      </div> -->
 
     </div>
 
