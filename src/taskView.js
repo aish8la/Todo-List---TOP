@@ -50,6 +50,13 @@ export class taskViewClass {
     });
   }
 
+  findTaskByID(taskID) {
+    const taskObj = this.tasks.find(task => {
+      return task.taskID === taskID;
+    });
+    return taskObj;
+  }
+
   sortPriority() {
     const priorityOder = { High: 1, Medium: 2, Low: 3 };
     this.tasks.sort((a, b) => {
