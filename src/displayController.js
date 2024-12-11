@@ -252,7 +252,7 @@ export class MainDisplayElements extends DisplayRenderClass {
                             },
                             {
                                 tag: "select",
-                                attributes: {"id": "project", "name": "project", "class": "form-input project-input"},
+                                attributes: {"required": "", "id": "project", "name": "project", "class": "form-input project-input"},
                             }
                         ]
                     },
@@ -321,6 +321,18 @@ export class MainDisplayElements extends DisplayRenderClass {
     renderForm() {
 
         const formElm = this.nodeGen(this.formStrucure);
+
         this.displayContainer.appendChild(formElm);
+        this.updateProjectOption(formElm);
+
     }
+
+    updateProjectOption(formElement) {
+
+        const selectElm = formElement.querySelector("select.form-input.project-input")
+        this.taskViewObj.projects.forEach(project => {
+            selectElm.appendChild(this.elementGen("option",{},project));
+        });
+    }
+
 }

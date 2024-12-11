@@ -124,4 +124,4 @@ displayObj.renderNavSidebar();
 displayObj.renderSidebarPrjList();
 displayObj.renderTasksWindow();
 displayObj.renderForm();
-console.log(taskView.tasks);
+// console.log(taskView.tasks);
