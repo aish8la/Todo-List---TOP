@@ -321,18 +321,26 @@ export class MainDisplayElements extends DisplayRenderClass {
     renderForm() {
 
         const formElm = this.nodeGen(this.formStrucure);
-
         this.displayContainer.appendChild(formElm);
         this.updateProjectOption(formElm);
-
     }
 
     updateProjectOption(formElement) {
 
-        const selectElm = formElement.querySelector("select.form-input.project-input")
+        const selectElm = formElement.querySelector("select.form-input.project-input");
         this.taskViewObj.projects.forEach(project => {
             selectElm.appendChild(this.elementGen("option",{},project));
         });
+    }
+
+    addSubTaskRender() {
+        const subTaskUL = document.querySelector("ul.sub-task-list-ctn");
+        const subTaskList = this.elementGen("li", {"class" : "sub-task-item"});
+        subTaskList.appendChild(this.elementGen("input", {"type" : "checkbox", "class" : "subtask-check-box"}));
+        subTaskList.appendChild(this.elementGen("input", {"type" : "text", "class" : "subtask-item-title", "placeholder" : "Subtask"}));
+        subTaskList.appendChild(this.elementGen("button", {"type" : "button", "class" : "sub-task-delete"}, "\u2716"));
+
+        subTaskUL.appendChild(subTaskList);
     }
 
 }
