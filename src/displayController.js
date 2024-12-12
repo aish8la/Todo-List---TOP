@@ -168,7 +168,9 @@ export class MainDisplayElements extends DisplayRenderClass {
 
             const listElm = this.elementGen("li", {class: "task-item", "data-elem-type": "task-li", "data-task-id": taskItem.taskID});
             const itmOne = this.elementGen("div", {class: "task-item-line-one task-item-line", "data-task-id": taskItem.taskID});
-            itmOne.appendChild(this.elementGen("input", {"type" : "checkbox", class: "task-item-check-box", "data-task-id": taskItem.taskID}));
+            const checkBoxElm = this.elementGen("input", {"type" : "checkbox", class: "task-item-check-box", "data-task-id": taskItem.taskID});
+            checkBoxElm.checked = taskItem.completed;
+            itmOne.appendChild(checkBoxElm);
             itmOne.appendChild(this.elementGen("div", {class: "list-task-title", "data-task-id": taskItem.taskID}, taskItem.taskName));
             listElm.appendChild(itmOne);            
 
@@ -346,7 +348,7 @@ export class MainDisplayElements extends DisplayRenderClass {
                     formField.value = currentTask[data];
                 }    
             });
-            
+
             if(currentTask.subTaskArr.length > 0) {
                 const subTaskList = currentTask.subTaskArr;
                 const subTaskCtn = formElm.querySelector("ul.sub-task-list-ctn");
