@@ -12,10 +12,11 @@ import { defaultData } from "./defaultData";
 const dataObj = new DataStoreClass(TaskClass, SubTaskClass);
 const taskView = new taskViewClass(dataObj);
 const displayObj = new MainDisplayElements(taskView);
-const UIObject = new UIControllerClass(dataObj, displayObj);
+const UIObject = new UIControllerClass(dataObj, displayObj, taskView);
   
 // Initialize App
 UIObject.initializeApp(defaultData);
+
 
 
 

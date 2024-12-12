@@ -1,8 +1,9 @@
 export class UIControllerClass {
 
-    constructor(dataObj,displayObj) {
+    constructor(dataObj,displayObj, taskViewObj) {
         this.displayObj = displayObj;
         this.dataObj = dataObj;
+        this.taskViewObj = taskViewObj
         }
 
     //Sidebar click event handlers
@@ -12,7 +13,7 @@ export class UIControllerClass {
 
     initializeApp(defaultData) {
         this.dataObj.initializeData(defaultData);
+        this.taskViewObj.initializeTaskView();
         this.displayObj.initializeDisplay();
     }
-
     }

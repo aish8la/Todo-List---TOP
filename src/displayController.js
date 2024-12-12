@@ -112,11 +112,13 @@ export class MainDisplayElements extends DisplayRenderClass {
 
         const menuList = document.querySelector(".category-list");
         
-        Object.keys(this.taskViewObj.navBarItems).forEach(key => {
+        this.taskViewObj.navBarItems.forEach(key => {
 
             const list = this.elementGen("li", {"data-list-item": `list-${key}`}, key);
             menuList.appendChild(list);
         });
+
+        
     }
 
     renderSidebarPrjList() {
@@ -134,16 +136,10 @@ export class MainDisplayElements extends DisplayRenderClass {
 
     //Main window render
 
-    currentTaskView = "Upcoming";
-
-    renderTasksWindow(viewType) {
-
-        if(viewType) {
-            this.currentTaskView = viewType;
-        }
+    renderTasksWindow() {
 
         const element = this.elementGen("div", {class: "content-space"});
-        element.appendChild(this.elementGen("div", {class: "content-title", "data-current-view": `${this.currentTaskView}`}, this.currentTaskView));
+        element.appendChild(this.elementGen("div", {class: "content-title"}, this.taskViewObj.currentView.title));
         element.appendChild(this.elementGen("ul", {class: "task-list-ctn no-decoration-list"}));
         this.displayContainer.appendChild(element);
 
@@ -153,7 +149,7 @@ export class MainDisplayElements extends DisplayRenderClass {
 
     renderTasklist() {
 
-        const renderTaskList = this.taskViewObj.navBarItems[this.currentTaskView]();
+        const renderTaskList = this.taskViewObj.currentView.func();
 
         const contentSpace = document.querySelector(".content-space");
 
@@ -182,7 +178,6 @@ export class MainDisplayElements extends DisplayRenderClass {
             
             contentSpace.appendChild(listElm);
         });
-        
     }
 
     //Form Render

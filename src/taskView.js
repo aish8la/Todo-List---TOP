@@ -6,6 +6,7 @@ import {
   isFuture,
   startOfDay,
 } from "date-fns";
+import { ar } from "date-fns/locale";
 
 export class taskViewClass {
   constructor(taskObj) {
@@ -14,9 +15,15 @@ export class taskViewClass {
     this.projects = taskObj.projectArr;
   }
 
-  navBarItems = {
-    "Today": this.todayFiltered.bind(this),
-    "Upcoming": this.upcomingFiltered.bind(this),
+  navBarItems = [
+    "Today",
+    "Upcoming",
+]
+
+  currentView = {
+    "title": "",
+    "func" : "",
+    "args" : ""
   }
 
   updateArr() {
@@ -86,6 +93,7 @@ export class taskViewClass {
     this.updateArr();
     this.defaultSort();
     this.filterDayDifference(0);
+    this.switchCurrentView(this.todayFiltered, undefined, "Today");
     return this.tasks;
   }
 
@@ -95,6 +103,25 @@ export class taskViewClass {
     this.tasks.filter(task => {
       return isFuture(startOfDay(task.dueDate));
     });
+    this.switchCurrentView(this.upcomingFiltered, undefined, "Upcoming");
     return this.tasks;
+  }
+
+  projectTasks(project) {
+    this.updateArr();
+    this.defaultSort();
+    this.filterProject(project);
+    this.switchCurrentView(this.projectTasks, project, project);
+    return this.tasks;
+  }
+
+  switchCurrentView(func, arg, title) {
+    this.currentView.func = func.bind(this, arg);
+    this.currentView.title = title;
+    this.currentView.args = arg;
+  }
+
+  initializeTaskView() {
+    this.switchCurrentView(this.todayFiltered, undefined, "Today");
   }
 }
