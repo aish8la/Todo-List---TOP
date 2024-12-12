@@ -346,7 +346,15 @@ export class MainDisplayElements extends DisplayRenderClass {
                     formField.value = currentTask[data];
                 }    
             });
-
+            
+            if(currentTask.subTaskArr.length > 0) {
+                const subTaskList = currentTask.subTaskArr;
+                const subTaskCtn = formElm.querySelector("ul.sub-task-list-ctn");
+                
+                subTaskList.forEach(subTask => {
+                    subTaskCtn.appendChild(this.SubTaskRender(subTask));
+                });
+            }
            
         }
 
