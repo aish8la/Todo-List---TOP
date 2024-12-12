@@ -402,4 +402,10 @@ export class MainDisplayElements extends DisplayRenderClass {
         subTaskUL.appendChild(this.SubTaskRender());
     }
 
+    initializeDisplay() {
+        this.renderNavSidebar();
+        this.renderSidebarPrjList();
+        this.renderTasksWindow();
+    }
+
 }

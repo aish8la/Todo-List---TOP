@@ -176,7 +176,7 @@ export class DataStoreClass {
     }
   }
 
-  initialize(initialData) {
+  initializeData(initialData) {
     this.loadInitialData(initialData);
   }
 }
