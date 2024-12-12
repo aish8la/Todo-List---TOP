@@ -346,8 +346,8 @@ export class MainDisplayElements extends DisplayRenderClass {
                     formField.value = currentTask[data];
                 }    
             });
-            //TODO: ADD FUNCTION TO LOAD SUBTASKS WHEN ID IS ENTERED
 
+           
         }
 
 
@@ -372,17 +372,17 @@ export class MainDisplayElements extends DisplayRenderClass {
         };
 
         if(subTask) {
-            subTaskObj. description = subTask.description;
-            subTaskObj.completed = subTask.completed;
-            console.log("valid subtask object");
+            subTaskObj.description = subTask.subTaskDescription;
+            subTaskObj.completed = subTask.subTaskCompleted;
         }
         
         
         const subTaskList = this.elementGen("li", {"class" : "sub-task-item", "data-type": "subtask"});
-        subTaskList.appendChild(this.elementGen("input", {"type" : "checkbox", "class" : "subtask-check-box", "data-type": "subtask", "value": subTaskObj.completed}));
-        subTaskList.appendChild(this.elementGen("input", {"type" : "text", "class" : "subtask-item-title", "placeholder" : "Subtask", "data-type": "subtask"}, subTaskObj.description));
+        const checkBoxElm = this.elementGen("input", {"type" : "checkbox", "class" : "subtask-check-box", "data-type": "subtask" });
+        checkBoxElm.checked = subTaskObj.completed;
+        subTaskList.appendChild(checkBoxElm);
+        subTaskList.appendChild(this.elementGen("input", {"type" : "text", "class" : "subtask-item-title", "placeholder" : "Subtask", "data-type": "subtask", "value": subTaskObj.description}));
         subTaskList.appendChild(this.elementGen("button", {"type" : "button", "class" : "sub-task-delete"}, "\u2716"));
-
         return subTaskList;
     }
 

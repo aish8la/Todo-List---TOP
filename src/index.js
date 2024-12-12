@@ -123,7 +123,7 @@ taskView.updateArr();
 displayObj.renderNavSidebar();
 displayObj.renderSidebarPrjList();
 displayObj.renderTasksWindow();
-displayObj.renderForm();
+displayObj.renderForm("task-id-4");
 // displayObj.newSubTaskRender();
 // console.log(taskView.tasks);
 // console.log(displayObj.taskViewObj.findTaskByID("task-id-4"));
