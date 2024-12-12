@@ -332,9 +332,10 @@ export class MainDisplayElements extends DisplayRenderClass {
     renderForm(taskID) {
 
         const formElm = this.nodeGen(this.formStrucure);
+        let currentTask = "";
 
         if(taskID) {
-            const currentTask = this.taskViewObj.findTaskByID(taskID);
+            currentTask = this.taskViewObj.findTaskByID(taskID);
             let formField;
     
             Object.entries(this.mapOfFormFields).forEach(([key, data]) => {
@@ -343,11 +344,10 @@ export class MainDisplayElements extends DisplayRenderClass {
                     formField.value = format(currentTask[data], 'yyyy-MM-dd');
                 } else {
                     formField.value = currentTask[data];
-                }
-
-                //TODO: ADD FUNCTION TO LOAD SUBTASKS WHEN ID IS ENTERED
-          
+                }    
             });
+            //TODO: ADD FUNCTION TO LOAD SUBTASKS WHEN ID IS ENTERED
+
         }
 
 
@@ -364,14 +364,32 @@ export class MainDisplayElements extends DisplayRenderClass {
         });
     }
 
-    addSubTaskRender() {
-        const subTaskUL = document.querySelector("ul.sub-task-list-ctn");
-        const subTaskList = this.elementGen("li", {"class" : "sub-task-item"});
-        subTaskList.appendChild(this.elementGen("input", {"type" : "checkbox", "class" : "subtask-check-box"}));
-        subTaskList.appendChild(this.elementGen("input", {"type" : "text", "class" : "subtask-item-title", "placeholder" : "Subtask"}));
+    SubTaskRender(subTask) {
+
+        const subTaskObj = {
+            description: "",
+            completed: false
+        };
+
+        if(subTask) {
+            subTaskObj. description = subTask.description;
+            subTaskObj.completed = subTask.completed;
+            console.log("valid subtask object");
+        }
+        
+        
+        const subTaskList = this.elementGen("li", {"class" : "sub-task-item", "data-type": "subtask"});
+        subTaskList.appendChild(this.elementGen("input", {"type" : "checkbox", "class" : "subtask-check-box", "data-type": "subtask", "value": subTaskObj.completed}));
+        subTaskList.appendChild(this.elementGen("input", {"type" : "text", "class" : "subtask-item-title", "placeholder" : "Subtask", "data-type": "subtask"}, subTaskObj.description));
         subTaskList.appendChild(this.elementGen("button", {"type" : "button", "class" : "sub-task-delete"}, "\u2716"));
 
-        subTaskUL.appendChild(subTaskList);
+        return subTaskList;
+    }
+
+    newSubTaskRender() {
+
+        const subTaskUL = document.querySelector("ul.sub-task-list-ctn");
+        subTaskUL.appendChild(this.SubTaskRender());
     }
 
 }
