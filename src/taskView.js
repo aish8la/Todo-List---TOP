@@ -99,7 +99,7 @@ export class taskViewClass {
     this.updateArr();
     this.defaultSort();
     this.filterDayDifference(0);
-    this.switchCurrentView(this.todayFiltered, undefined, "Today's Tasks");
+    this.switchCurrentView(this.todayFiltered, undefined, "Today");
     return this.tasks;
   }
 
@@ -109,7 +109,7 @@ export class taskViewClass {
     this.tasks = this.tasks.filter(task => {
       return isFuture(startOfDay(task.dueDate));
     });
-    this.switchCurrentView(this.upcomingFiltered, undefined, "Upcoming Tasks");
+    this.switchCurrentView(this.upcomingFiltered, undefined, "Upcoming");
     return this.tasks;
   }
 
@@ -118,7 +118,7 @@ export class taskViewClass {
     this.sortPriority();
     this.sortDue();
     this.filterIncompleteTasks();
-    this.switchCurrentView(this.completedTasks, undefined, "Completed Tasks");
+    this.switchCurrentView(this.completedTasks, undefined, "Completed");
     return this.tasks;
   }
 
