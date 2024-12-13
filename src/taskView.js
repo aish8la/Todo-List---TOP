@@ -115,6 +115,8 @@ export class taskViewClass {
     return this.tasks;
   }
 
+
+  // Used to set the current task view - used in filter and sorting functions
   switchCurrentView(func, arg, title) {
     this.currentView.func = func.bind(this, arg);
     this.currentView.title = title;
@@ -122,6 +124,7 @@ export class taskViewClass {
   }
 
   initializeTaskView() {
+    //default view
     this.switchCurrentView(this.todayFiltered, undefined, "Today");
   }
 }

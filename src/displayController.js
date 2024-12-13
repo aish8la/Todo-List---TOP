@@ -43,6 +43,7 @@ export class MainDisplayElements extends DisplayRenderClass {
         this.taskViewObj = taskViewObj;
     }
 
+    sidebarContainer;
 
     //Sidebar render
     renderNavSidebar() {
@@ -51,11 +52,11 @@ export class MainDisplayElements extends DisplayRenderClass {
         // object containing node list like data for generating the DOM elements
         const elements = {
             tag: "div",
-            attributes: { class: "nav-sidebar sidebar" },
+            attributes: { class: "nav-sidebar sidebar", "id": "sidebar-ctn" },
             children: [
                 {
                     tag: "button",
-                    attributes: { class: "add-task-btn button" },
+                    attributes: { class: "add-task-btn button", "data-event-target-type" : "button", "id" : "add-task-btn" },
                     content: "Add Task",
                 },
                 {
@@ -89,7 +90,7 @@ export class MainDisplayElements extends DisplayRenderClass {
                                 },
                                 {
                                     tag: "button",
-                                    attributes: { class: "add-project-btn", type: "button" },
+                                    attributes: { class: "add-project-btn", type: "button", "data-event-target-type" : "button", "id" : "add-project-btn" },
                                     content: "+",
                                 },
                             ],
@@ -105,7 +106,7 @@ export class MainDisplayElements extends DisplayRenderClass {
 
         this.displayContainer.appendChild(this.nodeGen(elements));
         this.renderSidebarMenuList();
-
+        this.sidebarContainer = document.querySelector("#sidebar-ctn");
     }
 
     renderSidebarMenuList() {
@@ -114,7 +115,7 @@ export class MainDisplayElements extends DisplayRenderClass {
         
         this.taskViewObj.navBarItems.forEach(key => {
 
-            const list = this.elementGen("li", {"data-list-item": `list-${key}`}, key);
+            const list = this.elementGen("li", {"data-task-view-menu-itm": `${key}`, "data-event-target-type" : "side-menu-itm"}, key);
             menuList.appendChild(list);
         });
 
@@ -127,8 +128,8 @@ export class MainDisplayElements extends DisplayRenderClass {
 
         this.taskViewObj.projects.forEach(project => {
 
-            const list = this.elementGen("li", {"data-prjct-name": `${project}`}, project);
-            const button = this.elementGen("button", {class: "project-delete-btn", "data-prj-delete-btn": `${project}`});
+            const list = this.elementGen("li", {"data-prjct-name": `${project}`, "data-event-target-type" : "side-menu-prj-itm"}, project);
+            const button = this.elementGen("button", {class: "project-delete-btn", "data-prj-delete-btn": `${project}`, "data-event-target-type" : "button"});
             list.appendChild(button);
             projectSection.appendChild(list);
         });
