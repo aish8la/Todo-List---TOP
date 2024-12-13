@@ -47,13 +47,25 @@ export class UIControllerClass {
 
     //Task Window Event Listeners
     
-    taskWindowClickHnd(taskWindowElm) {
+    taskWindowClickHnd(mainContainerElm) {
 
-        const taskWindowCtn = taskWindowElm;
+        const taskWindowCtn = mainContainerElm;
 
         taskWindowCtn.addEventListener("click", (e) => {
-            console.log(e.target);
+            if(e.target.type === "checkbox") {
+
+                this.toggleCompleteClck(e.target);
+
+            } else if(e.target.closest('li[data-elem-type="task-li"]')) {
+                console.log(e.target.closest('li[data-elem-type="task-li"]'));
+            }
         });
+    }
+
+    toggleCompleteClck(target) {
+        const taskID = target.dataset.taskId;
+        this.dataObj.taskCompleteToggle(taskID);
+        this.displayObj.renderTasklist();
     }
     
     //Initialize the event handlers
@@ -70,6 +82,6 @@ export class UIControllerClass {
         this.dataObj.initializeData(defaultData);
         this.taskViewObj.initializeTaskView();
         this.displayObj.initializeDisplay();
-        this.initializeEventHndl(this.displayObj.sidebarContainer, this.displayObj.taskWindowContainer);
+        this.initializeEventHndl(this.displayObj.sidebarContainer, this.displayObj.displayContainer);
     }
     }

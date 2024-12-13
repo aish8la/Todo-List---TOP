@@ -166,7 +166,7 @@ export class MainDisplayElements extends DisplayRenderClass {
         this.removeElement("#task-window");
 
         const element = this.elementGen("div", {class: "content-space", "id": "task-window"});
-        element.appendChild(this.elementGen("div", {class: "content-title"}, this.taskViewObj.currentView.title));
+        element.appendChild(this.elementGen("div", {class: "content-title"}, `${this.taskViewObj.currentView.title}'s Tasks`));
         element.appendChild(this.elementGen("ul", {class: "task-list-ctn no-decoration-list", "id" : "task-container"}));
         this.displayContainer.appendChild(element);
 
