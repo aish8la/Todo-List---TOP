@@ -26,7 +26,7 @@ export class UIControllerClass {
     }
 
     addProjectClick() {
-        //TODO: Add display method to render add project dialogue
+        this.displayObj.addProjectDialog();
     }
 
     sideMenuItmClck(targetElm) {
