@@ -17,6 +17,7 @@ export class taskViewClass {
   navBarItems = {
     "Today": this.todayFiltered.bind(this),
     "Upcoming": this.upcomingFiltered.bind(this),
+    "Completed": this.completedTasks.bind(this),
   }
 
   currentView = {
@@ -32,6 +33,12 @@ export class taskViewClass {
   filterCompleteTasks() {
     this.tasks = this.tasks.filter((e) => {
       return !e.completed;
+    });
+  }
+
+  filterIncompleteTasks() {
+    this.tasks = this.tasks.filter((e) => {
+      return e.completed;
     });
   }
 
@@ -92,7 +99,7 @@ export class taskViewClass {
     this.updateArr();
     this.defaultSort();
     this.filterDayDifference(0);
-    this.switchCurrentView(this.todayFiltered, undefined, "Today");
+    this.switchCurrentView(this.todayFiltered, undefined, "Today's Tasks");
     return this.tasks;
   }
 
@@ -102,7 +109,16 @@ export class taskViewClass {
     this.tasks.filter(task => {
       return isFuture(startOfDay(task.dueDate));
     });
-    this.switchCurrentView(this.upcomingFiltered, undefined, "Upcoming");
+    this.switchCurrentView(this.upcomingFiltered, undefined, "Upcoming Tasks");
+    return this.tasks;
+  }
+
+  completedTasks() {
+    this.updateArr();
+    this.sortPriority();
+    this.sortDue();
+    this.filterIncompleteTasks();
+    this.switchCurrentView(this.completedTasks, undefined, "Completed Tasks");
     return this.tasks;
   }
 
@@ -110,7 +126,7 @@ export class taskViewClass {
     this.updateArr();
     this.defaultSort();
     this.filterProject(project);
-    this.switchCurrentView(this.projectTasks, project, project);
+    this.switchCurrentView(this.projectTasks, project, `${project} Tasks`);
     return this.tasks;
   }
 
