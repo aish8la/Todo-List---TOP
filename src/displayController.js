@@ -34,6 +34,22 @@ export class DisplayRenderClass {
 
         return element;
     }
+
+    removeElement(selector) {
+        const target = this.displayContainer.querySelector(selector);
+        if(target) {
+            this.displayContainer.removeChild(target);
+        }
+    }
+
+    removeChildElements(parentSelector) {
+        const parent = this.displayContainer.querySelector(parentSelector);
+        if(parent) {
+            while(parent.hasChildNodes()) {
+                parent.removeChild(parent.firstChild);
+            }
+        }
+    }
 }
 
 export class MainDisplayElements extends DisplayRenderClass {
@@ -48,6 +64,7 @@ export class MainDisplayElements extends DisplayRenderClass {
     //Sidebar render
     renderNavSidebar() {
 
+        this.removeElement("#sidebar-ctn");
 
         // object containing node list like data for generating the DOM elements
         const elements = {
@@ -70,7 +87,7 @@ export class MainDisplayElements extends DisplayRenderClass {
                         },
                         {
                             tag: "ul",
-                            attributes: { class: "category-list no-decoration-list" },
+                            attributes: { class: "category-list no-decoration-list", "id" : "view-menu" },
                         },
                     ],
                 },
@@ -97,7 +114,7 @@ export class MainDisplayElements extends DisplayRenderClass {
                         },
                         {
                             tag: "ul",
-                            attributes: { class: "project-list no-decoration-list" },
+                            attributes: { class: "project-list no-decoration-list", "id" : "project-menu" },
                         },
                     ],
                 },
@@ -112,6 +129,8 @@ export class MainDisplayElements extends DisplayRenderClass {
 
     renderSidebarMenuList() {
 
+        this.removeChildElements("#view-menu");
+
         const menuList = document.querySelector(".category-list");
         
         Object.entries(this.taskViewObj.navBarItems).forEach(([key, value]) => {
@@ -124,6 +143,8 @@ export class MainDisplayElements extends DisplayRenderClass {
     }
 
     renderSidebarPrjList() {
+
+        this.removeChildElements("#project-menu");
 
         const projectSection = document.querySelector(".project-list");
 
@@ -140,9 +161,11 @@ export class MainDisplayElements extends DisplayRenderClass {
 
     renderTasksWindow() {
 
-        const element = this.elementGen("div", {class: "content-space"});
+        this.removeElement("#task-window");
+
+        const element = this.elementGen("div", {class: "content-space", "id": "task-window"});
         element.appendChild(this.elementGen("div", {class: "content-title"}, this.taskViewObj.currentView.title));
-        element.appendChild(this.elementGen("ul", {class: "task-list-ctn no-decoration-list"}));
+        element.appendChild(this.elementGen("ul", {class: "task-list-ctn no-decoration-list", "id" : "task-container"}));
         this.displayContainer.appendChild(element);
 
         this.renderTasklist();
@@ -150,6 +173,8 @@ export class MainDisplayElements extends DisplayRenderClass {
 
 
     renderTasklist() {
+
+        this.removeChildElements("#task-menu");
 
         const renderTaskList = this.taskViewObj.currentView.func();
 
@@ -186,7 +211,7 @@ export class MainDisplayElements extends DisplayRenderClass {
 
     formStrucure = {
         tag: "div",
-        attributes: {class: "form-container"},
+        attributes: {class: "form-container", "id" : "form-container"},
         children: [
             {
                 tag: "button",
@@ -329,6 +354,8 @@ export class MainDisplayElements extends DisplayRenderClass {
 
 
     renderForm(taskID) {
+
+        this.removeElement("#form-container");
 
         const formElm = this.nodeGen(this.formStrucure);
         let currentTask = "";
