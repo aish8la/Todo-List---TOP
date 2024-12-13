@@ -106,7 +106,7 @@ export class taskViewClass {
   upcomingFiltered() {
     this.updateArr();
     this.defaultSort();
-    this.tasks.filter(task => {
+    this.tasks = this.tasks.filter(task => {
       return isFuture(startOfDay(task.dueDate));
     });
     this.switchCurrentView(this.upcomingFiltered, undefined, "Upcoming Tasks");
