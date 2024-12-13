@@ -151,7 +151,7 @@ export class MainDisplayElements extends DisplayRenderClass {
         this.taskViewObj.projects.forEach(project => {
 
             const list = this.elementGen("li", {"data-prjct-name": `${project}`, "data-event-target-type" : "side-menu-prj-itm"}, project);
-            const button = this.elementGen("button", {class: "project-delete-btn", "data-prj-delete-btn": `${project}`, "data-event-target-type" : "button"});
+            const button = this.elementGen("button", {class: "project-delete-btn", "data-prj-delete-btn": `${project}`, "data-event-target-type" : "prj-dlt-button"});
             list.appendChild(button);
             projectSection.appendChild(list);
         });

@@ -17,7 +17,7 @@ export class UIControllerClass {
             if(e.target.id === "add-project-btn") { this.addProjectClick() }
             if(e.target.dataset.eventTargetType === "side-menu-itm") { this.sideMenuItmClck(e.target) }
             if(e.target.dataset.eventTargetType === "side-menu-prj-itm") { this.sideMenuPrjClck(e.target) }
-            console.log(e.target.dataset.eventTargetType);
+            if(e.target.dataset.eventTargetType === "prj-dlt-button") { this.projectDeleteClck(e.target) }
         });
     }
 
@@ -39,6 +39,10 @@ export class UIControllerClass {
         const project = targetElm.dataset.prjctName;
         this.taskViewObj.projectTasks(project);
         this.displayObj.renderTasksWindow();
+    }
+
+    projectDeleteClck() {
+        //TODO: add delete confirmation and action
     }
 
     //Initialize the event handlers

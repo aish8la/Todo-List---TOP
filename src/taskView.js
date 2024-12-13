@@ -126,7 +126,7 @@ export class taskViewClass {
     this.updateArr();
     this.defaultSort();
     this.filterProject(project);
-    this.switchCurrentView(this.projectTasks, project, `${project} Tasks`);
+    this.switchCurrentView(this.projectTasks, project, `Project : ${project}`);
     return this.tasks;
   }
 
