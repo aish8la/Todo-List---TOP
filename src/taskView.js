@@ -6,7 +6,7 @@ import {
   isFuture,
   startOfDay,
 } from "date-fns";
-import { ar } from "date-fns/locale";
+import { ar, th } from "date-fns/locale";
 
 export class taskViewClass {
   constructor(taskObj) {
@@ -15,10 +15,10 @@ export class taskViewClass {
     this.projects = taskObj.projectArr;
   }
 
-  navBarItems = [
-    "Today",
-    "Upcoming",
-]
+  navBarItems = {
+    "Today": this.todayFiltered.bind(this),
+    "Upcoming": this.upcomingFiltered.bind(this),
+  }
 
   currentView = {
     "title": "",

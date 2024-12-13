@@ -113,7 +113,7 @@ export class MainDisplayElements extends DisplayRenderClass {
 
         const menuList = document.querySelector(".category-list");
         
-        this.taskViewObj.navBarItems.forEach(key => {
+        Object.entries(this.taskViewObj.navBarItems).forEach(([key, value]) => {
 
             const list = this.elementGen("li", {"data-task-view-menu-itm": `${key}`, "data-event-target-type" : "side-menu-itm"}, key);
             menuList.appendChild(list);
