@@ -6,7 +6,6 @@ import {
   isFuture,
   startOfDay,
 } from "date-fns";
-import { ar, th } from "date-fns/locale";
 
 export class taskViewClass {
   constructor(taskObj) {
