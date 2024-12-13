@@ -14,6 +14,10 @@ export class UIControllerClass {
 
         sideBarParent.addEventListener("click", (e) => {
             if(e.target.id === "add-task-btn") { this.addTaskClick() }
+            if(e.target.id === "add-project-btn") { this.addProjectClick() }
+            if(e.target.dataset.eventTargetType === "side-menu-itm") { this.sideMenuItmClck(e.target) }
+            if(e.target.dataset.eventTargetType === "side-menu-prj-itm") { this.sideMenuPrjClck(e.target) }
+            console.log(e.target.dataset.eventTargetType);
         });
     }
 
@@ -21,6 +25,21 @@ export class UIControllerClass {
         this.displayObj.renderForm();
     }
 
+    addProjectClick() {
+        //TODO: Add display method to render add project dialogue
+    }
+
+    sideMenuItmClck(targetElm) {
+        const viewType = targetElm.dataset.taskViewMenuItm;
+        this.taskViewObj.navBarItems[viewType]();
+        this.displayObj.renderTasksWindow();
+    }
+
+    sideMenuPrjClck(targetElm) {
+        const project = targetElm.dataset.prjctName;
+        this.taskViewObj.projectTasks(project);
+        this.displayObj.renderTasksWindow();
+    }
 
     //Initialize the event handlers
 
