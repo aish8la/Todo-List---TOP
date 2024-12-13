@@ -430,9 +430,17 @@ export class MainDisplayElements extends DisplayRenderClass {
     //Dialogu Renders
 
 
-    renderDialogBox(title) {
+    renderDialogBox(title, id) {
 
-        const dialogOverlay = this.elementGen("div", {"class" : "dialog-overlay"});
+        let dialogID;
+
+        if(dialogID) {
+            dialogID = id;
+        } else {
+            dialogID = "dialog-ovl";
+        }
+
+        const dialogOverlay = this.elementGen("div", {"class" : "dialog-overlay", "id" : dialogID});
         const dialogBox = this.elementGen("div", {"class" : "dialog-box"});
         const dialogTitle = this.elementGen("div", {"class" : "dialog-title"}, title);
         dialogBox.appendChild(dialogTitle);
@@ -446,7 +454,9 @@ export class MainDisplayElements extends DisplayRenderClass {
 
     addProjectDialog() {
 
-        const dialogOverlay = this.renderDialogBox("New Project");
+        this.removeElement("#add-task-dlg-ovl");
+
+        const dialogOverlay = this.renderDialogBox("New Project", "add-task-dlg-ovl");
         const dialogBox = dialogOverlay.querySelector(".dialog-box");
         const form = this.elementGen("form",{"class" : "dialog-form"});
         form.appendChild(this.elementGen("input", {"type" : "text", "class" : "form-input dialog-input", "placeholder" : "Project Name", "required" : ""}));
@@ -461,7 +471,9 @@ export class MainDisplayElements extends DisplayRenderClass {
 
     confirmDialog(title, bodyText) {
 
-        const dialogOverlay = this.renderDialogBox(title);
+        this.removeElement("#confirm-dlg-ovl");
+
+        const dialogOverlay = this.renderDialogBox(title, "confirm-dlg-ovl");
         const dialogBox = dialogOverlay.querySelector(".dialog-box");
         const dialogBody = this.elementGen("div",{"class" : "dialog-form"});
         dialogBody.appendChild(this.elementGen("p", {"class" : "dialog-message"}, bodyText));
@@ -476,7 +488,9 @@ export class MainDisplayElements extends DisplayRenderClass {
 
     alertDialog(title, bodyText) {
 
-        const dialogOverlay = this.renderDialogBox(title);
+        this.removeElement("#alert-dlg-ovl");
+
+        const dialogOverlay = this.renderDialogBox(title, "alert-dlg-ovl");
         const dialogBox = dialogOverlay.querySelector(".dialog-box");
         const dialogBody = this.elementGen("div",{"class" : "dialog-form"});
         dialogBody.appendChild(this.elementGen("p", {"class" : "dialog-message"}, bodyText));
