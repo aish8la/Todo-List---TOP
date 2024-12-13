@@ -159,6 +159,8 @@ export class MainDisplayElements extends DisplayRenderClass {
 
     //Main window render
 
+    taskWindowContainer;
+
     renderTasksWindow() {
 
         this.removeElement("#task-window");
@@ -169,6 +171,8 @@ export class MainDisplayElements extends DisplayRenderClass {
         this.displayContainer.appendChild(element);
 
         this.renderTasklist();
+
+        this.taskWindowContainer = document.querySelector("#task-window");
     }
 
 

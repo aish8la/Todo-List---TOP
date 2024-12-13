@@ -8,7 +8,7 @@ export class UIControllerClass {
 
     //Sidebar click event handlers
 
-    addSidbarClickHnd(sidebarContainer) {
+    addSidebarClickHnd(sidebarContainer) {
 
         const sideBarParent = sidebarContainer;
 
@@ -45,10 +45,22 @@ export class UIControllerClass {
         //TODO: add delete confirmation and action
     }
 
+    //Task Window Event Listeners
+    
+    taskWindowClickHnd(taskWindowElm) {
+
+        const taskWindowCtn = taskWindowElm;
+
+        taskWindowCtn.addEventListener("click", (e) => {
+            console.log(e.target);
+        });
+    }
+    
     //Initialize the event handlers
 
-    initializeEventHndl(sidebarCtnElm) {
-        this.addSidbarClickHnd(sidebarCtnElm);
+    initializeEventHndl(sidebarCtnElm, taskWindElem) {
+        this.addSidebarClickHnd(sidebarCtnElm);
+        this.taskWindowClickHnd(taskWindElem);
     }
 
 
@@ -58,6 +70,6 @@ export class UIControllerClass {
         this.dataObj.initializeData(defaultData);
         this.taskViewObj.initializeTaskView();
         this.displayObj.initializeDisplay();
-        this.initializeEventHndl(this.displayObj.sidebarContainer);
+        this.initializeEventHndl(this.displayObj.sidebarContainer, this.displayObj.taskWindowContainer);
     }
     }
