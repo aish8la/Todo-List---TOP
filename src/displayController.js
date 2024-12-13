@@ -106,6 +106,7 @@ export class MainDisplayElements extends DisplayRenderClass {
 
         this.displayContainer.appendChild(this.nodeGen(elements));
         this.renderSidebarMenuList();
+        this.renderSidebarPrjList();
         this.sidebarContainer = document.querySelector("#sidebar-ctn");
     }
 
@@ -400,7 +401,6 @@ export class MainDisplayElements extends DisplayRenderClass {
 
     initializeDisplay() {
         this.renderNavSidebar();
-        this.renderSidebarPrjList();
         this.renderTasksWindow();
     }
 
