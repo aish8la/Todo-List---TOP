@@ -178,11 +178,11 @@ export class MainDisplayElements extends DisplayRenderClass {
 
     renderTasklist() {
 
-        this.removeChildElements("#task-menu");
+        this.removeChildElements("#task-container");
 
         const renderTaskList = this.taskViewObj.currentView.func();
 
-        const contentSpace = document.querySelector(".content-space");
+        const contentSpace = document.querySelector("#task-container");
 
         renderTaskList.forEach(taskItem => {
 
