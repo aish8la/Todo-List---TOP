@@ -83,12 +83,22 @@ export class UIControllerClass {
             if(e.target.id === "form-cls-btn") {
                 this.closeForm();
             }
+            if(e.target.id === "task-dlt-button") {
+                this.deleteTask(formCtn);
+            }
             console.log(e.target);
         });
     }
 
     closeForm() {
         this.displayObj.removeElement("#form-container");
+    }
+
+    deleteTask(target) {
+        const taskID = target.dataset.taskId;
+        //TODO: add a function to confirm deletion
+        this.dataObj.deleteTask(taskID);
+        this.displayObj.renderTasklist();
     }
     
     //Initialize the event handlers
