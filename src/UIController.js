@@ -86,7 +86,18 @@ export class UIControllerClass {
             if(e.target.id === "task-dlt-button") {
                 this.deleteTask(formCtn);
             }
-            console.log(e.target);
+            if(e.target.dataset.eventTargetType === "subTask-dlt-btn") {
+                this.deleteSubtask(e.target);
+            }
+            if(e.target.id === "add-sub-task-btn") {
+                this.addNewSubtask();
+            }
+            if(e.target.id === "modify-task-btn") {
+                //TODO: code to run to modify the task
+            }
+            if(e.target.id === "save-task-btn") {
+                //TODO: code to run to save new task
+            }
         });
     }
 
@@ -100,6 +111,15 @@ export class UIControllerClass {
         this.dataObj.deleteTask(taskID);
         this.displayObj.renderTasklist();
         this.closeForm();
+    }
+
+    deleteSubtask(childTarget) {
+        const parentElm = childTarget.closest("li.sub-task-item");
+        this.displayObj.removeTargetElm(parentElm);
+    }
+
+    addNewSubtask() {
+        this.displayObj.newSubTaskRender();
     }
     
     //Initialize the event handlers

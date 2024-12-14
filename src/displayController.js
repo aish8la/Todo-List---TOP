@@ -320,7 +320,7 @@ export class MainDisplayElements extends DisplayRenderClass {
                                     },
                                     {
                                         tag: "button",
-                                        attributes: {"class": "sub-task-btn", "type": "button"},
+                                        attributes: {"class": "sub-task-btn", "type": "button", "id" : "add-sub-task-btn"},
                                         content: "\u002B Add Subtask"
                                     },
                                 ]
