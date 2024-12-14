@@ -57,7 +57,7 @@ export class UIControllerClass {
                 this.toggleCompleteClck(e.target);
 
             } else if(e.target.closest('li[data-elem-type="task-li"]')) {
-                console.log(e.target.closest('li[data-elem-type="task-li"]'));
+               this.taskItemClck(e.target.closest('li[data-elem-type="task-li"]'));
             }
         });
     }
@@ -66,6 +66,11 @@ export class UIControllerClass {
         const taskID = target.dataset.taskId;
         this.dataObj.taskCompleteToggle(taskID);
         this.displayObj.renderTasklist();
+    }
+
+    taskItemClck(target) {
+        const taskID = target.dataset.taskId;
+        this.displayObj.renderForm(taskID);
     }
     
     //Initialize the event handlers
