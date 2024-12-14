@@ -423,7 +423,7 @@ export class MainDisplayElements extends DisplayRenderClass {
         
         
         const subTaskList = this.elementGen("li", {"class" : "sub-task-item", "data-type": "subtask"});
-        const checkBoxElm = this.elementGen("input", {"type" : "checkbox", "class" : "subtask-check-box", "data-type": "subtask", "name" : "subtaskDescription"});
+        const checkBoxElm = this.elementGen("input", {"type" : "checkbox", "class" : "subtask-check-box", "data-type": "subtask", "name" : "subTaskCheckbox"});
         checkBoxElm.checked = subTaskObj.completed;
         subTaskList.appendChild(checkBoxElm);
         subTaskList.appendChild(this.elementGen("input", {"name" : "subtaskDescription", "type" : "text", "class" : "subtask-item-title", "placeholder" : "Subtask", "data-type": "subtask", "value": subTaskObj.description}));
