@@ -365,6 +365,7 @@ export class MainDisplayElements extends DisplayRenderClass {
             const formBtnDiv = formElm.querySelector(".form-button-div");
             const submitFormBtn = formElm.querySelector(".form-button.save-task-btn");
             formBtnDiv.insertBefore(this.elementGen("button", {"type" : "button", "class" : "form-button delete-task-btn"}, "Delete"), submitFormBtn);
+            formElm.dataset.taskId = taskID;
             let formField;
     
             Object.entries(this.mapOfFormFields).forEach(([key, data]) => {
