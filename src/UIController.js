@@ -52,7 +52,7 @@ export class UIControllerClass {
         const taskWindowCtn = mainContainerElm;
 
         taskWindowCtn.addEventListener("click", (e) => {
-            if(e.target.type === "checkbox") {
+            if(e.target.dataset.eventTargetType === "task-checkbox") {
 
                 this.toggleCompleteClck(e.target);
 
@@ -71,10 +71,17 @@ export class UIControllerClass {
     taskItemClck(target) {
         const taskID = target.dataset.taskId;
         this.displayObj.renderForm(taskID);
+        this.formCtnClickHnd(document.querySelector("#form-container"));
     }
 
 
-    // Form 
+    // Task Form Event Handler
+
+    formCtnClickHnd(formCtn) {
+        formCtn.addEventListener("click", e => {
+            console.log(e.target);
+        });
+    }
     
     //Initialize the event handlers
 
