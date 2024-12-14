@@ -331,11 +331,6 @@ export class MainDisplayElements extends DisplayRenderClass {
                         children: [
                             {
                                 tag: "button",
-                                attributes: {"type" : "button", "class" : "form-button delete-task-btn"},
-                                content: "Delete"
-                            },
-                            {
-                                tag: "button",
                                 attributes: {"type" : "submit", "class" : "form-button save-task-btn"},
                                 content: "Save"
                             },
@@ -362,10 +357,14 @@ export class MainDisplayElements extends DisplayRenderClass {
         this.removeElement("#form-container");
 
         const formElm = this.nodeGen(this.formStrucure);
+
         let currentTask = "";
 
         if(taskID) {
             currentTask = this.taskViewObj.findTaskByID(taskID);
+            const formBtnDiv = formElm.querySelector(".form-button-div");
+            const submitFormBtn = formElm.querySelector(".form-button.save-task-btn");
+            formBtnDiv.insertBefore(this.elementGen("button", {"type" : "button", "class" : "form-button delete-task-btn"}, "Delete"), submitFormBtn);
             let formField;
     
             Object.entries(this.mapOfFormFields).forEach(([key, data]) => {
