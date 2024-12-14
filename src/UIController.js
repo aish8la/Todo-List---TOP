@@ -99,6 +99,7 @@ export class UIControllerClass {
         //TODO: add a function to confirm deletion
         this.dataObj.deleteTask(taskID);
         this.displayObj.renderTasklist();
+        this.closeForm();
     }
     
     //Initialize the event handlers
