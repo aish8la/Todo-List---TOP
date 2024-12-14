@@ -230,7 +230,7 @@ export class MainDisplayElements extends DisplayRenderClass {
             },
             {
                 tag: "form",
-                attributes: {"action":"", "method": "post", "class": "task-form"},
+                attributes: {"action":"", "method": "post", "class": "task-form", "id" : "new-task-form"},
                 children: [
                     {
                         tag:"div",
@@ -368,11 +368,11 @@ export class MainDisplayElements extends DisplayRenderClass {
 
         if(taskID) {
             currentTask = this.taskViewObj.findTaskByID(taskID);
-            const formBtnDiv = formElm.querySelector(".form-button-div");
-            const submitFormBtn = formElm.querySelector(".form-button.save-task-btn");
-            submitFormBtn.id = "modify-task-btn";
-            formBtnDiv.insertBefore(this.elementGen("button", {"type" : "button", "class" : "form-button delete-task-btn", "id" : "task-dlt-button"}, "Delete"), submitFormBtn);
+            const form = formElm.querySelector('form');
+            form.id = "modify-task-form";
+            form.dataset.taskId = taskID;
             formElm.dataset.taskId = taskID;
+            
             let formField;
     
             Object.entries(this.mapOfFormFields).forEach(([key, data]) => {
@@ -423,10 +423,10 @@ export class MainDisplayElements extends DisplayRenderClass {
         
         
         const subTaskList = this.elementGen("li", {"class" : "sub-task-item", "data-type": "subtask"});
-        const checkBoxElm = this.elementGen("input", {"type" : "checkbox", "class" : "subtask-check-box", "data-type": "subtask" });
+        const checkBoxElm = this.elementGen("input", {"type" : "checkbox", "class" : "subtask-check-box", "data-type": "subtask", "name" : "subtaskCheckbox"});
         checkBoxElm.checked = subTaskObj.completed;
         subTaskList.appendChild(checkBoxElm);
-        subTaskList.appendChild(this.elementGen("input", {"type" : "text", "class" : "subtask-item-title", "placeholder" : "Subtask", "data-type": "subtask", "value": subTaskObj.description}));
+        subTaskList.appendChild(this.elementGen("input", {"name" : "subtaskDescription", "type" : "text", "class" : "subtask-item-title", "placeholder" : "Subtask", "data-type": "subtask", "value": subTaskObj.description}));
         subTaskList.appendChild(this.elementGen("button", {"type" : "button", "class" : "sub-task-delete", "data-event-target-type" : "subTask-dlt-btn"}, "\u2716"));
         return subTaskList;
     }

@@ -79,6 +79,8 @@ export class UIControllerClass {
     // Task Form Event Handler
 
     formCtnClickHnd(formCtn) {
+        const formElm = formCtn.querySelector('form'); 
+
         formCtn.addEventListener("click", e => {
             if(e.target.id === "form-cls-btn") {
                 this.closeForm();
@@ -92,10 +94,14 @@ export class UIControllerClass {
             if(e.target.id === "add-sub-task-btn") {
                 this.addNewSubtask();
             }
-            if(e.target.id === "modify-task-btn") {
-                //TODO: code to run to modify the task
-            }
-            if(e.target.id === "save-task-btn") {
+
+        });
+
+        formElm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            if(formElm.id === "new-task-form") {
+                
+                this.saveNewTask(e.target);
                 //TODO: code to run to save new task
             }
         });
@@ -120,6 +126,13 @@ export class UIControllerClass {
 
     addNewSubtask() {
         this.displayObj.newSubTaskRender();
+    }
+
+    saveNewTask(formElm) {
+        console.log(formElm);
+        const formData = new FormData(formElm);
+        const dataObj = Object.fromEntries(formData);
+        console.log(dataObj);
     }
     
     //Initialize the event handlers
