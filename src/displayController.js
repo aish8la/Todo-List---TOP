@@ -50,6 +50,12 @@ export class DisplayRenderClass {
             }
         }
     }
+
+    removeTargetElm(target) {
+        if(target) {
+            target.remove();
+        }
+    }
 }
 
 export class MainDisplayElements extends DisplayRenderClass {
@@ -331,7 +337,7 @@ export class MainDisplayElements extends DisplayRenderClass {
                         children: [
                             {
                                 tag: "button",
-                                attributes: {"type" : "submit", "class" : "form-button save-task-btn"},
+                                attributes: {"type" : "submit", "class" : "form-button save-task-btn", "id" : "save-task-btn"},
                                 content: "Save"
                             },
                         ]
@@ -364,6 +370,7 @@ export class MainDisplayElements extends DisplayRenderClass {
             currentTask = this.taskViewObj.findTaskByID(taskID);
             const formBtnDiv = formElm.querySelector(".form-button-div");
             const submitFormBtn = formElm.querySelector(".form-button.save-task-btn");
+            submitFormBtn.id = "modify-task-btn";
             formBtnDiv.insertBefore(this.elementGen("button", {"type" : "button", "class" : "form-button delete-task-btn", "id" : "task-dlt-button"}, "Delete"), submitFormBtn);
             formElm.dataset.taskId = taskID;
             let formField;
@@ -420,7 +427,7 @@ export class MainDisplayElements extends DisplayRenderClass {
         checkBoxElm.checked = subTaskObj.completed;
         subTaskList.appendChild(checkBoxElm);
         subTaskList.appendChild(this.elementGen("input", {"type" : "text", "class" : "subtask-item-title", "placeholder" : "Subtask", "data-type": "subtask", "value": subTaskObj.description}));
-        subTaskList.appendChild(this.elementGen("button", {"type" : "button", "class" : "sub-task-delete"}, "\u2716"));
+        subTaskList.appendChild(this.elementGen("button", {"type" : "button", "class" : "sub-task-delete", "data-event-target-type" : "subTask-dlt-btn"}, "\u2716"));
         return subTaskList;
     }
 
