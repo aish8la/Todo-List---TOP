@@ -215,11 +215,11 @@ export class MainDisplayElements extends DisplayRenderClass {
 
     formStrucure = {
         tag: "div",
-        attributes: {class: "form-container", "id" : "form-container"},
+        attributes: {"class": "form-container", "id" : "form-container"},
         children: [
             {
                 tag: "button",
-                attributes: {class:"form-close-btn"},
+                attributes: {"class":"form-close-btn", "id" : "form-cls-btn"},
                 content: "\u2716",
             },
             {

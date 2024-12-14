@@ -23,6 +23,7 @@ export class UIControllerClass {
 
     addTaskClick() {
         this.displayObj.renderForm();
+        this.formCtnClickHnd(document.querySelector("#form-container"));
     }
 
     addProjectClick() {
@@ -79,8 +80,15 @@ export class UIControllerClass {
 
     formCtnClickHnd(formCtn) {
         formCtn.addEventListener("click", e => {
+            if(e.target.id === "form-cls-btn") {
+                this.closeForm();
+            }
             console.log(e.target);
         });
+    }
+
+    closeForm() {
+        this.displayObj.removeElement("#form-container");
     }
     
     //Initialize the event handlers
