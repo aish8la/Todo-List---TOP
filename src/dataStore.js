@@ -1,5 +1,3 @@
-import { formatDate } from "date-fns";
-
 export class DataStoreClass {
   constructor(taskClass, subTaskClass) {
     this.taskClass = taskClass;
@@ -52,6 +50,7 @@ export class DataStoreClass {
       data.completed,
     );
     this.#taskArray.push(task);
+    this.saveToStorage();
   }
 
   modfiyTask(dataObj) {
@@ -78,6 +77,7 @@ export class DataStoreClass {
         taskObj[key] = data[key];
       }
     }
+    this.saveToStorage();
   }
 
   taskCompleteToggle(taskID) {
@@ -85,6 +85,7 @@ export class DataStoreClass {
       return taskID === e.taskID;
     });
     this.#taskArray[taskIndex].toggleComplete();
+    this.saveToStorage();
   }
 
   deleteTask(taskID) {
@@ -97,6 +98,7 @@ export class DataStoreClass {
     }
 
     this.#taskArray.splice(taskIndex, 1);
+    this.saveToStorage();
   }
 
   addProject(prjName) {
@@ -109,6 +111,7 @@ export class DataStoreClass {
     }
 
     this.#projectListArr.push(prjName);
+    this.saveToStorage();
   }
 
   deleteProject(prjName) {
@@ -129,6 +132,7 @@ export class DataStoreClass {
     }
 
     this.#projectListArr.splice(indexProject, 1);
+    this.saveToStorage();
   }
 
   get taskArr() {
@@ -150,6 +154,7 @@ export class DataStoreClass {
 
       this.createTask(element);
     });
+    this.saveToStorage();
 
   }
 
@@ -172,7 +177,6 @@ export class DataStoreClass {
       this.loadFromStorage();
     } else {
       this.importTasks(defaultData);
-      this.saveToStorage();
     }
   }
 
