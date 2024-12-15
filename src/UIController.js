@@ -28,6 +28,7 @@ export class UIControllerClass {
 
     addProjectClick() {
         this.displayObj.addProjectDialog();
+        this.addPrjDialogClck();
     }
 
     sideMenuItmClck(targetElm) {
@@ -137,7 +138,29 @@ export class UIControllerClass {
         this.displayObj.renderTasklist();
         this.closeForm();
     }
-    
+
+    //dialog event handlers
+
+    closeDialog(target) {
+        this.displayObj.removeTargetElm(target);
+    }
+
+    cancelDialogClck(dialogOverlayElm) {
+        dialogOverlayElm.addEventListener("click", e => {
+            
+            if(e.target.dataset.eventTargetType === "dialog-close") {
+                this.closeDialog(dialogOverlayElm);
+            }
+        });
+    }
+
+    addPrjDialogClck() {
+        const dialogOverlay = document.querySelector("#add-project-dlg-ovl");
+        this.cancelDialogClck(dialogOverlay);
+ 
+        
+    }
+
     //Initialize the event handlers
 
     initializeEventHndl(sidebarCtnElm, taskWindElem) {
