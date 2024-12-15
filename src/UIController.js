@@ -129,7 +129,10 @@ export class UIControllerClass {
     }
 
     saveNewTask(formElm) {
-        this.displayObj.taskFormData(formElm);
+        const taskData = this.displayObj.taskFormData(formElm);
+        this.dataObj.createTask(taskData);
+        this.displayObj.renderTasklist();
+        this.closeForm();
     }
     
     //Initialize the event handlers
