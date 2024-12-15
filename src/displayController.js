@@ -472,7 +472,7 @@ export class MainDisplayElements extends DisplayRenderClass {
         const dialogOverlay = this.renderDialogBox("New Project", "add-project-dlg-ovl");
         const dialogBox = dialogOverlay.querySelector(".dialog-box");
         const form = this.elementGen("form",{"class" : "dialog-form"});
-        form.appendChild(this.elementGen("input", {"type" : "text", "class" : "form-input dialog-input", "placeholder" : "Project Name", "required" : ""}));
+        form.appendChild(this.elementGen("input", {"type" : "text", "class" : "form-input dialog-input", "placeholder" : "Project Name", "required" : "", "name" : "projectName"}));
         const buttonCtn = this.elementGen("div", {"class" : "dialog-buttons"});
         buttonCtn.appendChild(this.elementGen("button", {"type" : "button", "class" : "dialog-button dialog-cancel-btn", "data-event-target-type" : "dialog-close"}, "Cancel"));
         buttonCtn.appendChild(this.elementGen("button", {"type" : "submit", "class" : "dialog-button dialog-save-btn"}, "Save"));
@@ -539,6 +539,13 @@ export class MainDisplayElements extends DisplayRenderClass {
         }
 
         return taskObj;
+    }
+
+    //Project form data parsing
+
+    projectFormData(formElm) {
+        const prjctName = formElm.querySelector("input[name='projectName']").value;
+        return prjctName;
     }
 
 

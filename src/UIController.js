@@ -157,7 +157,15 @@ export class UIControllerClass {
     addPrjDialogClck() {
         const dialogOverlay = document.querySelector("#add-project-dlg-ovl");
         this.cancelDialogClck(dialogOverlay);
- 
+        const form = dialogOverlay.querySelector('form');
+
+        form.addEventListener("submit", e => {
+            e.preventDefault();
+            const projectName = this.displayObj.projectFormData(form);
+            this.dataObj.addProject(projectName);
+            this.displayObj.renderSidebarPrjList();
+            this.closeDialog(dialogOverlay);
+        });
         
     }
 
