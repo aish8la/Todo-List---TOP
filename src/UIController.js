@@ -43,8 +43,20 @@ export class UIControllerClass {
         this.displayObj.renderTasksWindow();
     }
 
-    projectDeleteClck() {
-        //TODO: add delete confirmation and action
+    projectDeleteClck(target) {
+        const projectName = target.dataset.prjDeleteBtn;
+
+        const confirmDelete = (prjName, dialogElm) => {
+            this.dataObj.deleteProject(prjName);
+            this.displayObj.renderSidebarPrjList();
+            this.closeDialog(dialogElm);
+        } 
+
+        this.displayObj.confirmDialog("Confirmation", "Are you sure you want to delete this ?");
+        this.confirmationDialogClck((dialog) => {
+            confirmDelete(projectName, dialog);
+        });
+
     }
 
     //Task Window Event Listeners
@@ -166,7 +178,17 @@ export class UIControllerClass {
             this.displayObj.renderSidebarPrjList();
             this.closeDialog(dialogOverlay);
         });
-        
+    }
+
+    confirmationDialogClck(func) {
+        const dialogOverlay = document.querySelector("#confirm-dlg-ovl");
+        this.cancelDialogClck(dialogOverlay);
+
+        dialogOverlay.addEventListener("click", e => {
+            if(e.target.dataset.eventTargetType === "dialog-confirm") {
+                func(dialogOverlay);
+            }
+        });
     }
 
     //Initialize the event handlers
