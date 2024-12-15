@@ -129,10 +129,7 @@ export class UIControllerClass {
     }
 
     saveNewTask(formElm) {
-        console.log(formElm);
-        const formData = new FormData(formElm);
-        const dataObj = Object.fromEntries(formData);
-        console.log(formData.getAll("subtaskCheckbox"));
+        this.displayObj.taskFormData(formElm);
     }
     
     //Initialize the event handlers

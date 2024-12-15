@@ -17,6 +17,16 @@ const UIObject = new UIControllerClass(dataObj, displayObj, taskView);
 // Initialize App
 UIObject.initializeApp(defaultData);
 
+//Test Functions
+UIObject.addTaskClick();
+const form = document.querySelector('input[name="taskName"]');
+form.value = "TAsk";
+UIObject.addNewSubtask();
+UIObject.addNewSubtask();
+UIObject.saveNewTask(document.querySelector("form"));
+
+
+
 
 
 

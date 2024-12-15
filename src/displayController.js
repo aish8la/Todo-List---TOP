@@ -423,10 +423,10 @@ export class MainDisplayElements extends DisplayRenderClass {
         
         
         const subTaskList = this.elementGen("li", {"class" : "sub-task-item", "data-type": "subtask"});
-        const checkBoxElm = this.elementGen("input", {"type" : "checkbox", "class" : "subtask-check-box", "data-type": "subtask", "name" : "subTaskCheckbox"});
+        const checkBoxElm = this.elementGen("input", {"type" : "checkbox", "class" : "subtask-check-box", "data-type": "subtask", "name" : "subTaskCompleted"});
         checkBoxElm.checked = subTaskObj.completed;
         subTaskList.appendChild(checkBoxElm);
-        subTaskList.appendChild(this.elementGen("input", {"name" : "subtaskDescription", "type" : "text", "class" : "subtask-item-title", "placeholder" : "Subtask", "data-type": "subtask", "value": subTaskObj.description}));
+        subTaskList.appendChild(this.elementGen("input", {"name" : "subTaskDescription", "type" : "text", "class" : "subtask-item-title", "placeholder" : "Subtask", "data-type": "subtask", "value": subTaskObj.description}));
         subTaskList.appendChild(this.elementGen("button", {"type" : "button", "class" : "sub-task-delete", "data-event-target-type" : "subTask-dlt-btn"}, "\u2716"));
         return subTaskList;
     }
@@ -511,6 +511,26 @@ export class MainDisplayElements extends DisplayRenderClass {
         dialogBox.appendChild(dialogBody);
 
         document.querySelector("body").appendChild(dialogOverlay)
+    }
+
+    //Form Data Parsing
+    taskFormData(formElement) {
+        const inputs = formElement.querySelectorAll("input, textarea, select");
+        const subtaskInputs = formElement.querySelectorAll("li[data-type='subtask']");
+        const taskObj = {subTaskArr : []};
+
+        subtaskInputs.forEach((li) => {
+            const [checkbox, description] = li.querySelectorAll("input");
+            taskObj.subTaskArr.push({[checkbox.name] : checkbox.value, [description.name] : description.value});
+        });
+
+        inputs.forEach(input => {
+            if(input.dataset.dataTyp !== "sub-task") {
+                taskObj[input.name] = input.value;
+            }
+        });
+
+        return taskObj;
     }
 
 
