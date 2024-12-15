@@ -382,7 +382,7 @@ export class MainDisplayElements extends DisplayRenderClass {
             Object.entries(this.mapOfFormFields).forEach(([key, data]) => {
                 formField = formElm.querySelector(`[name="${key}"]`);
                 if(formField.type === "date") {
-                    formField.value = format(currentTask[data], 'yyyy-MM-dd');
+                    formField.value = currentTask[data] ? format(currentTask[data], 'yyyy-MM-dd') : "";
                 } else {
                     formField.value = currentTask[data];
                 }    
