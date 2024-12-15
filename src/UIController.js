@@ -46,15 +46,11 @@ export class UIControllerClass {
     projectDeleteClck(target) {
         const projectName = target.dataset.prjDeleteBtn;
 
-        const confirmDelete = (prjName, dialogElm) => {
-            this.dataObj.deleteProject(prjName);
-            this.displayObj.renderSidebarPrjList();
-            this.closeDialog(dialogElm);
-        } 
-
         this.displayObj.confirmDialog("Confirmation", "Are you sure you want to delete this ?");
-        this.confirmationDialogClck((dialog) => {
-            confirmDelete(projectName, dialog);
+        // function passed to confirmDialogClck function to attach to confirm button
+        this.confirmationDialogClck(() => {
+            this.dataObj.deleteProject(projectName);
+            this.displayObj.renderSidebarPrjList();
         });
 
     }
@@ -186,7 +182,8 @@ export class UIControllerClass {
 
         dialogOverlay.addEventListener("click", e => {
             if(e.target.dataset.eventTargetType === "dialog-confirm") {
-                func(dialogOverlay);
+                func();
+                this.closeDialog(dialogOverlay);
             }
         });
     }
