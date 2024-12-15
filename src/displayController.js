@@ -453,7 +453,7 @@ export class MainDisplayElements extends DisplayRenderClass {
             dialogID = "dialog-ovl";
         }
 
-        const dialogOverlay = this.elementGen("div", {"class" : "dialog-overlay", "id" : dialogID, "event-target-type" : "dialog-close"});
+        const dialogOverlay = this.elementGen("div", {"class" : "dialog-overlay", "id" : dialogID, "data-event-target-type" : "dialog-close"});
         const dialogBox = this.elementGen("div", {"class" : "dialog-box"});
         const dialogTitle = this.elementGen("div", {"class" : "dialog-title"}, title);
         dialogBox.appendChild(dialogTitle);
@@ -474,7 +474,7 @@ export class MainDisplayElements extends DisplayRenderClass {
         const form = this.elementGen("form",{"class" : "dialog-form"});
         form.appendChild(this.elementGen("input", {"type" : "text", "class" : "form-input dialog-input", "placeholder" : "Project Name", "required" : ""}));
         const buttonCtn = this.elementGen("div", {"class" : "dialog-buttons"});
-        buttonCtn.appendChild(this.elementGen("button", {"type" : "button", "class" : "dialog-button dialog-cancel-btn", "event-target-type" : "dialog-close"}, "Cancel"));
+        buttonCtn.appendChild(this.elementGen("button", {"type" : "button", "class" : "dialog-button dialog-cancel-btn", "data-event-target-type" : "dialog-close"}, "Cancel"));
         buttonCtn.appendChild(this.elementGen("button", {"type" : "submit", "class" : "dialog-button dialog-save-btn"}, "Save"));
         form.appendChild(buttonCtn);
         dialogBox.appendChild(form);
@@ -492,7 +492,7 @@ export class MainDisplayElements extends DisplayRenderClass {
         const dialogBody = this.elementGen("div",{"class" : "dialog-form"});
         dialogBody.appendChild(this.elementGen("p", {"class" : "dialog-message"}, bodyText));
         const buttonCtn = this.elementGen("div", {"class" : "dialog-buttons"});
-        buttonCtn.appendChild(this.elementGen("button", {"type" : "button", "class" : "dialog-button dialog-cancel-btn", "event-target-type" : "dialog-close"}, "Cancel"));
+        buttonCtn.appendChild(this.elementGen("button", {"type" : "button", "class" : "dialog-button dialog-cancel-btn", "data-event-target-type" : "dialog-close"}, "Cancel"));
         buttonCtn.appendChild(this.elementGen("button", {"type" : "button", "class" : "dialog-button dialog-save-btn"}, "Confirm"));
         dialogBody.appendChild(buttonCtn);
         dialogBox.appendChild(dialogBody);
@@ -509,7 +509,7 @@ export class MainDisplayElements extends DisplayRenderClass {
         const dialogBody = this.elementGen("div",{"class" : "dialog-form"});
         dialogBody.appendChild(this.elementGen("p", {"class" : "dialog-message"}, bodyText));
         const buttonCtn = this.elementGen("div", {"class" : "dialog-buttons"});
-        buttonCtn.appendChild(this.elementGen("button", {"type" : "button", "class" : "dialog-button dialog-cancel-btn", "event-target-type" : "dialog-close"}, "Ok"));
+        buttonCtn.appendChild(this.elementGen("button", {"type" : "button", "class" : "dialog-button dialog-cancel-btn", "data-event-target-type" : "dialog-close"}, "Ok"));
         dialogBody.appendChild(buttonCtn);
         dialogBox.appendChild(dialogBody);
 
