@@ -525,7 +525,7 @@ export class MainDisplayElements extends DisplayRenderClass {
 
         subtaskInputs.forEach((li) => {
             const [checkbox, description] = li.querySelectorAll("input");
-            taskObj.subTaskArr.push({[checkbox.name] : checkbox.value, [description.name] : description.value});
+            taskObj.subTaskArr.push({[checkbox.name] : checkbox.checked , [description.name] : description.value});
         });
 
         inputs.forEach(input => {
