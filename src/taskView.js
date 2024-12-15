@@ -45,7 +45,7 @@ export class taskViewClass {
   filterDayDifference(numOfDays) {
     const currentDate = new Date();
     this.tasks = this.tasks.filter((e) => {
-      if(differenceInCalendarDays(e.dueDate, currentDate) <= numOfDays) {
+      if(differenceInCalendarDays(e.dueDate, currentDate) <= numOfDays || e.dueDate === "") {
         return true;
       }
     });
