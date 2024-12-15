@@ -107,7 +107,7 @@ export class DataStoreClass {
         return str.toLowerCase() === prjName.toLowerCase();
       })
     ) {
-      return console.log("Project with that name already exists"); //TODO: Add propper error handling
+      return {"title" : "Alert", "bodyText" : "Project with that name already exists"}; //TODO: Add propper error handling
     }
 
     this.#projectListArr.push(prjName);

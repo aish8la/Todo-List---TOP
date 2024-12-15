@@ -169,13 +169,16 @@ export class UIControllerClass {
         const dialogOverlay = document.querySelector("#add-project-dlg-ovl");
         this.cancelDialogClck(dialogOverlay);
         const form = dialogOverlay.querySelector('form');
+        let alert = false;
 
         form.addEventListener("submit", e => {
             e.preventDefault();
             const projectName = this.displayObj.projectFormData(form);
-            this.dataObj.addProject(projectName);
+            alert = this.dataObj.addProject(projectName);
+            this.confirmationDialogClck(alert);
             this.displayObj.renderSidebarPrjList();
             this.closeDialog(dialogOverlay);
+ 
         });
     }
 
@@ -189,6 +192,15 @@ export class UIControllerClass {
                 this.closeDialog(dialogOverlay);
             }
         });
+    }
+
+    confirmationDialogClck(alert) {
+        if(alert) {
+            const {title, bodyText} = alert;
+            this.displayObj.alertDialog(title, bodyText);
+            const dialogOverlay = document.querySelector("#alert-dlg-ovl");
+            this.cancelDialogClck(dialogOverlay);
+        }
     }
 
     //Initialize the event handlers
