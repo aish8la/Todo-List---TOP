@@ -84,25 +84,21 @@ export class UIControllerClass {
         formCtn.addEventListener("click", e => {
             if(e.target.id === "form-cls-btn") {
                 this.closeForm();
-            }
-            if(e.target.id === "task-dlt-button") {
+            } else if(e.target.id === "task-dlt-button") {
                 this.deleteTask(formCtn);
-            }
-            if(e.target.dataset.eventTargetType === "subTask-dlt-btn") {
+            } else if(e.target.dataset.eventTargetType === "subTask-dlt-btn") {
                 this.deleteSubtask(e.target);
-            }
-            if(e.target.id === "add-sub-task-btn") {
+            } else if(e.target.id === "add-sub-task-btn") {
                 this.addNewSubtask();
             }
-
         });
 
         formElm.addEventListener("submit", (e) => {
             e.preventDefault();
             if(formElm.id === "new-task-form") {
-                
                 this.saveNewTask(e.target);
-                //TODO: code to run to save new task
+            } else if(formElm.id === "modify-task-form") {
+                this.modifyCurrentTask(e.target);
             }
         });
     }
@@ -131,6 +127,13 @@ export class UIControllerClass {
     saveNewTask(formElm) {
         const taskData = this.displayObj.taskFormData(formElm);
         this.dataObj.createTask(taskData);
+        this.displayObj.renderTasklist();
+        this.closeForm();
+    }
+
+    modifyCurrentTask(formElm) {
+        const newData = this.displayObj.taskFormData(formElm);
+        this.dataObj.modifyTask(newData);
         this.displayObj.renderTasklist();
         this.closeForm();
     }

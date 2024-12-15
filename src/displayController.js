@@ -522,6 +522,7 @@ export class MainDisplayElements extends DisplayRenderClass {
         const inputs = formElement.querySelectorAll("input, textarea, select");
         const subtaskInputs = formElement.querySelectorAll("li[data-type='subtask']");
         const taskObj = {subTaskArr : []};
+        const formTaskId = formElement.dataset.taskId;
 
         subtaskInputs.forEach((li) => {
             const [checkbox, description] = li.querySelectorAll("input");
@@ -533,6 +534,10 @@ export class MainDisplayElements extends DisplayRenderClass {
                 taskObj[input.name] = input.value;
             }
         });
+        
+        if(formTaskId) {
+            taskObj["taskID"] = formTaskId;
+        }
 
         return taskObj;
     }

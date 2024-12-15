@@ -53,7 +53,7 @@ export class DataStoreClass {
     this.saveToStorage();
   }
 
-  modfiyTask(dataObj) {
+  modifyTask(dataObj) {
     const data = dataObj;
     const taskElementID = this.#taskArray.findIndex((element) => {
       return element.taskID === data.taskID;
