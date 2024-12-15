@@ -447,21 +447,19 @@ export class MainDisplayElements extends DisplayRenderClass {
 
     renderDialogBox(title, id) {
 
-        let dialogID;
+        let dialogID = id;
 
-        if(dialogID) {
-            dialogID = id;
-        } else {
+        if(!id) {
             dialogID = "dialog-ovl";
         }
 
-        const dialogOverlay = this.elementGen("div", {"class" : "dialog-overlay", "id" : dialogID});
+        const dialogOverlay = this.elementGen("div", {"class" : "dialog-overlay", "id" : dialogID, "event-target-type" : "dialog-close"});
         const dialogBox = this.elementGen("div", {"class" : "dialog-box"});
         const dialogTitle = this.elementGen("div", {"class" : "dialog-title"}, title);
         dialogBox.appendChild(dialogTitle);
         dialogOverlay.appendChild(dialogBox);
 
-        return dialogOverlay
+        return dialogOverlay;
     }
 
 
@@ -469,19 +467,20 @@ export class MainDisplayElements extends DisplayRenderClass {
 
     addProjectDialog() {
 
-        this.removeElement("#add-task-dlg-ovl");
+        this.removeElement("#add-project-dlg-ovl");
 
-        const dialogOverlay = this.renderDialogBox("New Project", "add-task-dlg-ovl");
+        const dialogOverlay = this.renderDialogBox("New Project", "add-project-dlg-ovl");
         const dialogBox = dialogOverlay.querySelector(".dialog-box");
         const form = this.elementGen("form",{"class" : "dialog-form"});
         form.appendChild(this.elementGen("input", {"type" : "text", "class" : "form-input dialog-input", "placeholder" : "Project Name", "required" : ""}));
         const buttonCtn = this.elementGen("div", {"class" : "dialog-buttons"});
-        buttonCtn.appendChild(this.elementGen("button", {"type" : "button", "class" : "dialog-button dialog-cancel-btn"}, "Cancel"));
+        buttonCtn.appendChild(this.elementGen("button", {"type" : "button", "class" : "dialog-button dialog-cancel-btn", "event-target-type" : "dialog-close"}, "Cancel"));
         buttonCtn.appendChild(this.elementGen("button", {"type" : "submit", "class" : "dialog-button dialog-save-btn"}, "Save"));
         form.appendChild(buttonCtn);
         dialogBox.appendChild(form);
 
-        document.querySelector("body").appendChild(dialogOverlay)
+        document.querySelector("body").appendChild(dialogOverlay);
+
     }
 
     confirmDialog(title, bodyText) {
@@ -493,12 +492,12 @@ export class MainDisplayElements extends DisplayRenderClass {
         const dialogBody = this.elementGen("div",{"class" : "dialog-form"});
         dialogBody.appendChild(this.elementGen("p", {"class" : "dialog-message"}, bodyText));
         const buttonCtn = this.elementGen("div", {"class" : "dialog-buttons"});
-        buttonCtn.appendChild(this.elementGen("button", {"type" : "button", "class" : "dialog-button dialog-cancel-btn"}, "Cancel"));
+        buttonCtn.appendChild(this.elementGen("button", {"type" : "button", "class" : "dialog-button dialog-cancel-btn", "event-target-type" : "dialog-close"}, "Cancel"));
         buttonCtn.appendChild(this.elementGen("button", {"type" : "button", "class" : "dialog-button dialog-save-btn"}, "Confirm"));
         dialogBody.appendChild(buttonCtn);
         dialogBox.appendChild(dialogBody);
 
-        document.querySelector("body").appendChild(dialogOverlay)
+        document.querySelector("body").appendChild(dialogOverlay);
     }
 
     alertDialog(title, bodyText) {
@@ -510,11 +509,11 @@ export class MainDisplayElements extends DisplayRenderClass {
         const dialogBody = this.elementGen("div",{"class" : "dialog-form"});
         dialogBody.appendChild(this.elementGen("p", {"class" : "dialog-message"}, bodyText));
         const buttonCtn = this.elementGen("div", {"class" : "dialog-buttons"});
-        buttonCtn.appendChild(this.elementGen("button", {"type" : "button", "class" : "dialog-button dialog-save-btn"}, "Ok"));
+        buttonCtn.appendChild(this.elementGen("button", {"type" : "button", "class" : "dialog-button dialog-cancel-btn", "event-target-type" : "dialog-close"}, "Ok"));
         dialogBody.appendChild(buttonCtn);
         dialogBox.appendChild(dialogBody);
 
-        document.querySelector("body").appendChild(dialogOverlay)
+        document.querySelector("body").appendChild(dialogOverlay);
     }
 
     //Form Data Parsing
