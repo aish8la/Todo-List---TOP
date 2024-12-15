@@ -371,6 +371,10 @@ export class MainDisplayElements extends DisplayRenderClass {
             const form = formElm.querySelector('form');
             form.id = "modify-task-form";
             form.dataset.taskId = taskID;
+            const formBtnDiv = formElm.querySelector(".form-button-div");
+            const submitFormBtn = formElm.querySelector(".form-button.save-task-btn");
+            submitFormBtn.id = "modify-task-btn";
+            formBtnDiv.insertBefore(this.elementGen("button", {"type" : "button", "class" : "form-button delete-task-btn", "id" : "task-dlt-button"}, "Delete"), submitFormBtn);
             formElm.dataset.taskId = taskID;
             
             let formField;
