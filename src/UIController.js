@@ -118,10 +118,13 @@ export class UIControllerClass {
 
     deleteTask(target) {
         const taskID = target.dataset.taskId;
-        //TODO: add a function to confirm deletion
-        this.dataObj.deleteTask(taskID);
-        this.displayObj.renderTasklist();
-        this.closeForm();
+        this.displayObj.confirmDialog("Confirmation", "Are you sure you want to delete this ?");
+        // function passed to confirmDialogClck function to attach to confirm button
+        this.confirmationDialogClck(() => {
+            this.dataObj.deleteTask(taskID);
+            this.displayObj.renderTasklist();
+            this.closeForm();
+        });
     }
 
     deleteSubtask(childTarget) {
