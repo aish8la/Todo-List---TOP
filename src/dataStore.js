@@ -107,7 +107,7 @@ export class DataStoreClass {
         return str.toLowerCase() === prjName.toLowerCase();
       })
     ) {
-      return {"title" : "Alert", "bodyText" : "Project with that name already exists"}; //TODO: Add propper error handling
+      return {"title" : "Alert", "bodyText" : "Project with that name already exists"};
     }
 
     this.#projectListArr.push(prjName);
@@ -120,7 +120,7 @@ export class DataStoreClass {
         return task.project.toLowerCase() === prjName.toLowerCase();
       })
     ) {
-      return console.log("The project you are trying to delete contains tasks"); //TODO: Add a error handler for this
+      return {"title" : "Alert", "bodyText" : "The project you are trying to delete contains tasks. Remove them first"};
     }
 
     const indexProject = this.#projectListArr.findIndex((project) => {

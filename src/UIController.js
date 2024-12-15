@@ -49,7 +49,9 @@ export class UIControllerClass {
         this.displayObj.confirmDialog("Confirmation", "Are you sure you want to delete this ?");
         // function passed to confirmDialogClck function to attach to confirm button
         this.confirmationDialogClck(() => {
-            this.dataObj.deleteProject(projectName);
+            let alert = false;
+            alert = this.dataObj.deleteProject(projectName);
+            this.alertDialog(alert);
             this.displayObj.renderSidebarPrjList();
         });
 
@@ -175,7 +177,7 @@ export class UIControllerClass {
             e.preventDefault();
             const projectName = this.displayObj.projectFormData(form);
             alert = this.dataObj.addProject(projectName);
-            this.confirmationDialogClck(alert);
+            this.alertDialog(alert);
             this.displayObj.renderSidebarPrjList();
             this.closeDialog(dialogOverlay);
  
@@ -194,7 +196,7 @@ export class UIControllerClass {
         });
     }
 
-    confirmationDialogClck(alert) {
+    alertDialog(alert) {
         if(alert) {
             const {title, bodyText} = alert;
             this.displayObj.alertDialog(title, bodyText);
