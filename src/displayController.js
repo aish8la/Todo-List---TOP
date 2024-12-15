@@ -363,7 +363,7 @@ export class MainDisplayElements extends DisplayRenderClass {
         this.removeElement("#form-container");
 
         const formElm = this.nodeGen(this.formStrucure);
-
+        this.updateProjectOption(formElm);
         let currentTask = "";
 
         if(taskID) {
@@ -402,7 +402,7 @@ export class MainDisplayElements extends DisplayRenderClass {
 
 
         this.displayContainer.appendChild(formElm);
-        this.updateProjectOption(formElm);
+        
     }
 
     updateProjectOption(formElement) {
