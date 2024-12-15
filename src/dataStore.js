@@ -94,7 +94,8 @@ export class DataStoreClass {
     });
 
     if (taskIndex === -1) {
-      return console.log("The task you are trying to delete does not exist"); //TODO: Add error handling
+      
+      return {"title" : "Alert", "bodyText" : "The task you are trying to delete does not exist"};
     }
 
     this.#taskArray.splice(taskIndex, 1);
@@ -128,7 +129,8 @@ export class DataStoreClass {
     });
 
     if (indexProject === -1) {
-      return console.log("The project you are trying to delete does not exist"); //TODO: Add error handlings
+      
+      return {"title" : "Alert", "bodyText" : "The project you are trying to delete does not exist"};
     }
 
     this.#projectListArr.splice(indexProject, 1);

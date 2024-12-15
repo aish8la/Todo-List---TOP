@@ -123,7 +123,9 @@ export class UIControllerClass {
         this.displayObj.confirmDialog("Confirmation", "Are you sure you want to delete this ?");
         // function passed to confirmDialogClck function to attach to confirm button
         this.confirmationDialogClck(() => {
-            this.dataObj.deleteTask(taskID);
+            let alert = false;
+            alert = this.dataObj.deleteTask(taskID);
+            this.alertDialog(alert);
             this.displayObj.renderTasklist();
             this.closeForm();
         });
